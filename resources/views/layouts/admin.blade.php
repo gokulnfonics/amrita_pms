@@ -72,7 +72,7 @@
 								<!--begin::User menu-->
 								<div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
 									<!--begin::Menu wrapper-->
-									<!--begin:Menu item--><!--end:Menu item-->
+									<!--begin:Menu item-->											<!--end:Menu item-->
 									<div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
 									<img src="{{ !empty(Auth::user()->thumbnail_path) ? asset(Auth::user()->thumbnail_path) : url('/assets/media/avatars/300-1.jpg') }}" alt="user" />
 									</div>
@@ -89,7 +89,7 @@
 												<!--begin::Username-->
 												<div class="d-flex flex-column">
 													<div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->first_name }}  @if(Auth::user()->last_name){{ Auth::user()->last_name }}@endif
-													<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2" style="text-transform: capitalize"></span></div>
+													<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2" style="text-transform: capitalize">{{Auth::user()->role}}</span></div>
 													<a href="" class="fw-semibold text-muted text-hover-primary fs-7">{{Auth::user()->email}}</a>
 												</div>
 												<!--end::Username-->
@@ -174,7 +174,7 @@
 									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 										<!--begin:Menu link-->
 										<a  href="">
-											<span class="menu-link ">
+											<span class="menu-link @if(in_array(Route::currentRouteName(),array('dashboard'))) active  @endif">
 												<span class="menu-icon">
 													<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 													<span class="svg-icon svg-icon-2">
@@ -193,18 +193,49 @@
 										<!--end:Menu link-->									
 									</div>
 
+									<!--end:Menu item-->
+
+
+
+														
+
+
+									<!--begin:Menu item-->
 									
 
 
-
-
+									<!--begin:Menu item-->
+									
+									<!--begin:Menu item-->
+									
 									
 									<!--end:Menu item-->
 
 									<!--end:Menu item-->
 							
-									</div>
+
+
+										<!--begin:Menu item-->
+										<!--end:Menu item-->
+									
+	                                <!--begin:Menu item-->
+									
+									
 									<!--end:Menu item-->
+
+								
+									<!--begin:Menu item-->
+
+									<!--begin:Menu item-->
+
+									<!--end:Menu item-->
+
+								
+										<!--begin:Menu item-->
+									
+									
+									<!--end:Menu item-->
+		
 
 									
 									<div class="menu-item pt-5">
@@ -215,7 +246,7 @@
 										<!--end:Menu content-->
 									</div>
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion  @if(in_array(Route::currentRouteName(),array('user.index','user.create','user.edit'))) show @endif">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -230,7 +261,7 @@
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link " href="">
+												<a class="menu-link @if(in_array(Route::currentRouteName(),array('user.index'))) active  @endif" href="">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -242,7 +273,7 @@
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link " href="">
+												<a class="menu-link @if(in_array(Route::currentRouteName(),array('user.create'))) active  @endif" href="">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -264,6 +295,15 @@
 							<!--end::Menu wrapper-->
 						</div>
 						<!--end::sidebar menu-->
+						<!--begin::Footer-->
+						<div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
+							
+								<span class="footer-label">2024© Amrita Vishwa Vidyapeetham</span>
+								<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
+							
+								<!--end::Svg Icon-->
+							</a>
+						</div>
 						<!--end::Footer-->
 					</div>
 					<!--end::Sidebar-->
@@ -271,10 +311,57 @@
                     @yield('content')
 
                     <!--begin::Javascript-->
-		
+		<script>var hostUrl = "assets/";</script>
+		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		<script src="{{ url('/') }}/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="{{ url('/') }}/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="{{ url('/') }}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="{{ url('/') }}/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="{{ url('/') }}/assets/js/widgets.bundle.js"></script>
+		<script src="{{ url('/') }}/assets/js/custom/widgets.js"></script>
+		<script src="{{ url('/') }}/assets/js/custom/apps/chat/chat.js"></script>
+		<script src="{{ url('/') }}/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="{{ url('/') }}/assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="{{ url('/') }}/assets/js/custom/utilities/modals/new-target.js"></script>
+		<script src="{{ url('/') }}/assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="{{ url('/') }}/assets/js/alertify/alertify.min.js"></script>
+		<script src="{{ url('/') }}/assets/plugins/custom/timepicker/jquery.timepicker.min599c.js?v4.0.2"></script>
+		<script src="{{ url('/') }}/assets/plugins/custom/bootstrap-datepicker/bootstrap-datepicker.min599c.js?v4.0.2"></script>
+		<script src="{{ url('/') }}/assets/js/custom/custom.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
-        
+		<script>
+        $(document).ready(function() {
+            @if(Session::has('success'))
+            alertify.success(`{{Session::get('success')}}`);
+            @endif
+
+            @if(Session::has('error'))
+            alertify.error(`{{Session::get('error')}}`);
+            @endif
+
+            
+        });
+    </script>
+
+		@yield('pageScripts')
 	</body>
 	<!--end::Body-->
 </html>
