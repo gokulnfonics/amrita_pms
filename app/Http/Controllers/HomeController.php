@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //return view('home');
+        return redirect()->route('registration');
     }
+
+    public function registration()
+    {
+        
+        return view('student_registration');
+    }
+
 }
