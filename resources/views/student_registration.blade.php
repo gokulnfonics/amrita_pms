@@ -1,21 +1,19 @@
 {{ view('layouts.blank') }}
 
-<div class="content-wrapper mt-4">
+<div class="content-wrapper mt-10 me-20 ms-20">
     <div class="content-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-8">
-                    <h1 class="m-0">Manage User Profiles</h1>
+                    <h1 class="m-0">Build Resume</h1>
                 </div>
-                
+
             </div>
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <ul class="page-breadcrumb breadcrumb">
-                        <li class="breadcrumb-item"><i class="fas fa-angle-right"></i></li>
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><i class="fas fa-angle-right"></i></li>
-                        <li class="breadcrumb-item">Create User profile</li>
+                        <li class="breadcrumb-item">Build Resume</li>
                     </ul>
                 </div>
             </div>
@@ -27,7 +25,7 @@
             <div class="col-12">
                 <div class="card mb-5">
                     <div class="card-header">
-                        <h3 class="card-title">Create User Profile</h3>
+                        <h3 class="card-title">Build Resume</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -39,8 +37,7 @@
                                         <div class="col-12">
                                             <h2 class="fw-bold text-secondary">Personal Information</h2>
                                             <div class="form-outline mb-4">
-                                                <input type="hidden" id="user_id" name="user_id"
-                                                    class="form-control" />
+                                                <input type="hidden" id="user_id" name="user_id" class="form-control" />
                                             </div>
                                             <div class="row mb-4">
                                                 <div class="col-sm-6 col-12">
@@ -86,7 +83,8 @@
                                             </div>
                                             <div class="form-outline mb-4">
                                                 <label class="form-label fw-bold text-secondary">About</label>
-                                                <textarea class="form-control" placeholder="Descripton" id="about_me" name="about_me" rows="4"></textarea>
+                                                <textarea class="form-control" placeholder="Descripton" id="about_me"
+                                                    name="about_me" rows="4"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -99,8 +97,8 @@
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
                                                         <label class="form-label fw-bold text-secondary">Email</label>
-                                                        <input type="email" id="email" name="email"
-                                                            placeholder="Email" class="form-control" />
+                                                        <input type="email" id="email" name="email" placeholder="Email"
+                                                            class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
@@ -113,8 +111,7 @@
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
-                                                        <label
-                                                            class="form-label fw-bold text-secondary">Website</label>
+                                                        <label class="form-label fw-bold text-secondary">Website</label>
                                                         <input type="url" id="website" name="website"
                                                             class="form-control" placeholder="Website" />
                                                     </div>
@@ -136,8 +133,7 @@
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
-                                                        <label
-                                                            class="form-label fw-bold text-secondary">Twitter</label>
+                                                        <label class="form-label fw-bold text-secondary">Twitter</label>
                                                         <input type="text" id="twitter" name="twitter"
                                                             class="form-control" placeholder="Twitter" />
                                                     </div>
@@ -164,9 +160,8 @@
                                                         <div class="form-outline mb-4">
                                                             <label
                                                                 class="form-label fw-bold text-secondary">Degree</label>
-                                                            <input type="text" id="degree_title"
-                                                                name="degree_title[]" class="form-control"
-                                                                placeholder="Degree" />
+                                                            <input type="text" id="degree_title" name="degree_title[]"
+                                                                class="form-control" placeholder="Degree" />
                                                         </div>
                                                         <div class="form-outline mb-4">
                                                             <label
@@ -181,14 +176,12 @@
                                                                         class="form-label fw-bold text-secondary">Start
                                                                         Date</label>
                                                                     <input type="date" id="edu_start_date"
-                                                                        name="edu_start_date[]"
-                                                                        class="form-control" />
+                                                                        name="edu_start_date[]" class="form-control" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="form-outline">
-                                                                    <label
-                                                                        class="form-label fw-bold text-secondary">End
+                                                                    <label class="form-label fw-bold text-secondary">End
                                                                         Date</label>
                                                                     <input type="date" id="edu_end_date"
                                                                         name="edu_end_date[]" class="form-control" />
@@ -198,8 +191,9 @@
                                                         <div class="form-outline mb-4">
                                                             <label class="form-label fw-bold text-secondary">Degree
                                                                 Description</label>
-                                                            <textarea class="form-control" placeholder="Descripton" id="education_description" name="education_description[]"
-                                                                rows="4"></textarea>
+                                                            <textarea class="form-control" placeholder="Descripton"
+                                                                id="education_description"
+                                                                name="education_description[]" rows="4"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -231,9 +225,8 @@
                                                         <div class="form-outline mb-4">
                                                             <label
                                                                 class="form-label fw-bold text-secondary">Organization</label>
-                                                            <input type="text" id="organization"
-                                                                name="organization[]" class="form-control"
-                                                                placeholder="Organization" />
+                                                            <input type="text" id="organization" name="organization[]"
+                                                                class="form-control" placeholder="Organization" />
                                                         </div>
                                                         <div class="row mb-4">
                                                             <div class="col-sm-6 col-12">
@@ -242,14 +235,12 @@
                                                                         class="form-label fw-bold text-secondary">Start
                                                                         Date</label>
                                                                     <input type="date" id="job_start_date"
-                                                                        name="job_start_date[]"
-                                                                        class="form-control" />
+                                                                        name="job_start_date[]" class="form-control" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="form-outline">
-                                                                    <label
-                                                                        class="form-label fw-bold text-secondary">End
+                                                                    <label class="form-label fw-bold text-secondary">End
                                                                         Date</label>
                                                                     <input type="date" id="job_end_date"
                                                                         name="job_end_date[]" class="form-control" />
@@ -259,7 +250,8 @@
                                                         <div class="form-outline mb-4">
                                                             <label class="form-label fw-bold text-secondary">Job
                                                                 Description</label>
-                                                            <textarea class="form-control" placeholder="Job Descripton" id="job_description" name="job_description[]"
+                                                            <textarea class="form-control" placeholder="Job Descripton"
+                                                                id="job_description" name="job_description[]"
                                                                 rows="4"></textarea>
                                                         </div>
                                                     </div>
@@ -286,15 +278,16 @@
                                                         <div class="form-outline mb-4">
                                                             <label class="form-label fw-bold text-secondary">Project
                                                                 Title</label>
-                                                            <input type="text" id="project_title"
-                                                                name="project_title[]" class="form-control"
-                                                                placeholder="Project Title" />
+                                                            <input type="text" id="project_title" name="project_title[]"
+                                                                class="form-control" placeholder="Project Title" />
                                                         </div>
                                                         <div class="form-outline mb-4">
                                                             <label class="form-label fw-bold text-secondary">Project
                                                                 Description</label>
-                                                            <textarea class="form-control" placeholder="Project Descripton" id="project_description"
-                                                                name="project_description[]" rows="4"></textarea>
+                                                            <textarea class="form-control"
+                                                                placeholder="Project Descripton"
+                                                                id="project_description" name="project_description[]"
+                                                                rows="4"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -320,8 +313,7 @@
                                                         <div class="row">
                                                             <div class="col-10">
                                                                 <div class="form-outline">
-                                                                    <label
-                                                                        class="form-label fw-bold text-secondary">Add
+                                                                    <label class="form-label fw-bold text-secondary">Add
                                                                         Skill</label>
                                                                     <input type="text" id="skill_name"
                                                                         name="skill_name[]" class="form-control"
@@ -368,8 +360,7 @@
                                                         <div class="row">
                                                             <div class="col-10">
                                                                 <div class="form-outline">
-                                                                    <label
-                                                                        class="form-label fw-bold text-secondary">Add
+                                                                    <label class="form-label fw-bold text-secondary">Add
                                                                         langauge</label>
                                                                     <select class="form-control" id="language"
                                                                         name="language[]">
@@ -641,8 +632,8 @@
                                                                         <span class="input-group-text"
                                                                             id="percentage">Level</span>
                                                                         <select id="language_level"
-                                                                            name="language_level[]"
-                                                                            placeholder="level" class="form-control"
+                                                                            name="language_level[]" placeholder="level"
+                                                                            class="form-control"
                                                                             aria-describedby="percentage">
                                                                             <option value="">Select level
                                                                             </option>
@@ -690,18 +681,17 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check d-flex justify-content-center mb-4">
-                                        <input class="form-check-input me-2" type="checkbox" value="1"
-                                            id="verify" name="verify" required />
+                                        <input class="form-check-input me-2" type="checkbox" value="1" id="verify"
+                                            name="verify" required />
                                         <label for="verify" class="form-check-label text-dark"> Are you
                                             sure you
-                                            want to create new
-                                            profile?
+                                            want to create Resume?
                                         </label>
                                     </div>
 
                                     <!-- Submit button -->
-                                    <button type="submit" id="submitbtn" class="btn btn-lg btn-primary w-100">Create
-                                        profile</button>
+                                    <button type="submit" id="submitbtn" class="btn btn-lg btn-primary w-200px">Create
+                                        Resume</button>
                                 </form>
                             </div>
                         </div>
@@ -713,4 +703,3 @@
         <!-- /.row -->
     </div>
 </div>
-
