@@ -1,33 +1,56 @@
 {{ view('layouts.blank') }}
 
-<div class="content-wrapper mt-10 me-20 ms-20">
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-8">
-                    <h1 class="m-0">Build Resume</h1>
-                </div>
+<style>
+.content-wrapper {
+    width: 80%;
+    margin: 0px auto;
+}
 
-            </div>
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item">Build Resume</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+h2 {
+    font-size: 1.24rem;
+    padding-bottom: 10px;
+    color: #00bcd4;
+}
+
+.br-btm {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.br-btm .col-8 {
+    padding-left: 0px !important;
+}
+
+.add-btn {
+    background: none !important;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    color: #f66505 !important;
+}
+
+.add-btn:hover {
+    background: none !important;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    color: #00bcd4 !important;
+}
+
+#submitbtn {
+    float: right;
+    margin-top: 30px;
+}
+</style>
+
+<div class="content-wrapper mt-0">
+
 
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col-12">
                 <div class="card mb-5">
-                    <div class="card-header">
+                    <div class="card-header h-50px px-0">
                         <h3 class="card-title">Build Resume</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body px-0 pt-0">
                         <div class="row">
                             <div class="col-12 p-md-5 p-sm-4 p-3">
                                 <form action="" id="createform" method="POST" enctype="multipart/form-data">
@@ -35,7 +58,7 @@
                                     {{-- Personal Information --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2 class="fw-bold text-secondary">Personal Information</h2>
+                                            <h2 class="fw-bold br-btm py-4 mb-10">Personal Information</h2>
                                             <div class="form-outline mb-4">
                                                 <input type="hidden" id="user_id" name="user_id" class="form-control" />
                                             </div>
@@ -91,8 +114,8 @@
 
                                     {{-- Contact Information --}}
                                     <div class="row">
-                                        <div class="col-12">
-                                            <h2 class="fw-bold text-secondary">Contact Information</h2>
+                                        <div class="col-12 ">
+                                            <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Contact Information</h2>
                                             <div class="row mb-4">
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
@@ -144,19 +167,19 @@
 
                                     {{-- Education --}}
                                     <div class="row">
-                                        <div class="col-12">
-                                            <div class="row">
+                                        <div class="col-12 ">
+                                            <div class="row br-btm pt-10">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Education</h2>
+                                                    <h2 class="fw-bold ">Education</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_education">Add
+                                                    <button class="btn btn-sm add-btn" id="add_education">Add
                                                         Education</button>
                                                 </div>
                                             </div>
                                             <section class="education_section">
                                                 <div class="card mb-4">
-                                                    <div class="card-body">
+                                                    <div class="card-body px-0">
                                                         <div class="form-outline mb-4">
                                                             <label
                                                                 class="form-label fw-bold text-secondary">Degree</label>
@@ -204,18 +227,18 @@
                                     {{-- Experiencce --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="row">
+                                            <div class="row br-btm">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Experience</h2>
+                                                    <h2 class="fw-bold ">Experience</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_experience">Add
+                                                    <button class="btn btn-sm add-btn" id="add_experience">Add
                                                         Experience</button>
                                                 </div>
                                             </div>
                                             <section class="experience_section">
                                                 <div class="card mb-4">
-                                                    <div class="card-body">
+                                                    <div class="card-body px-0">
                                                         <div class="form-outline mb-4">
                                                             <label class="form-label fw-bold text-secondary">Job
                                                                 Title</label>
@@ -263,18 +286,18 @@
                                     {{-- Projects --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="row">
+                                            <div class="row br-btm">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Projects</h2>
+                                                    <h2 class="fw-bold ">Projects</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_project">Add
+                                                    <button class="btn btn-sm add-btn" id="add_project">Add
                                                         Project</button>
                                                 </div>
                                             </div>
                                             <section class="project_section">
                                                 <div class="card mb-4">
-                                                    <div class="card-body">
+                                                    <div class="card-body px-0">
                                                         <div class="form-outline mb-4">
                                                             <label class="form-label fw-bold text-secondary">Project
                                                                 Title</label>
@@ -298,20 +321,20 @@
                                     {{-- SKILLS & PROFICIENCY --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="row">
+                                            <div class="row br-btm">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Skills & Proficiency</h2>
+                                                    <h2 class="fw-bold ">Skills & Proficiency</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_skill">Add
+                                                    <button class="btn btn-sm add-btn" id="add_skill">Add
                                                         Skill</button>
                                                 </div>
                                             </div>
                                             <section class="skill_section">
                                                 <div class="card mb-4">
-                                                    <div class="card-body">
+                                                    <div class="card-body px-0">
                                                         <div class="row">
-                                                            <div class="col-10">
+                                                            <div class="col-12 col-sm-12 col-md-8">
                                                                 <div class="form-outline">
                                                                     <label class="form-label fw-bold text-secondary">Add
                                                                         Skill</label>
@@ -320,7 +343,7 @@
                                                                         placeholder="Add Skill" value="" />
                                                                 </div>
                                                             </div>
-                                                            <div class="col-2">
+                                                            <div class="col-12 col-sm-12 col-md-4">
                                                                 <div class="form-outline">
                                                                     <label
                                                                         class="form-label fw-bold text-secondary">Percentage</label>
@@ -345,20 +368,20 @@
                                     {{-- Languages --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="row">
+                                            <div class="row br-btm">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Languages</h2>
+                                                    <h2 class="fw-bold ">Languages</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_language">Add
+                                                    <button class="btn btn-sm add-btn" id="add_language">Add
                                                         Language</button>
                                                 </div>
                                             </div>
                                             <section class="language_section">
                                                 <div class="card mb-4">
-                                                    <div class="card-body">
+                                                    <div class="card-body px-0">
                                                         <div class="row">
-                                                            <div class="col-10">
+                                                            <div class="col-12 col-sm-12 col-md-8">
                                                                 <div class="form-outline">
                                                                     <label class="form-label fw-bold text-secondary">Add
                                                                         langauge</label>
@@ -624,7 +647,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-2">
+                                                            <div class="col-12 col-sm-12 col-md-4">
                                                                 <div class="form-outline">
                                                                     <label
                                                                         class="form-label fw-bold text-secondary">Level</label>
@@ -652,20 +675,20 @@
                                     </div>
 
                                     {{-- Interests --}}
-                                    <div class="row">
+                                    <div class="row br-btm">
                                         <div class="col-12">
-                                            <div class="row">
+                                            <div class="row br-btm">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Interests</h2>
+                                                    <h2 class="fw-bold ">Interests</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_interest">Add
+                                                    <button class="btn btn-sm add-btn" id="add_interest">Add
                                                         interest</button>
                                                 </div>
                                             </div>
                                             <section class="interest_section">
                                                 <div class="card mb-4">
-                                                    <div class="card-body">
+                                                    <div class="card-body px-0">
                                                         <div class="form-outline">
                                                             <label class="form-label fw-bold text-secondary">Add
                                                                 Interest</label>
@@ -679,24 +702,16 @@
                                     </div>
 
 
-                                    <!-- Checkbox -->
-                                    <div class="form-check d-flex justify-content-center mb-4">
-                                        <input class="form-check-input me-2" type="checkbox" value="1" id="verify"
-                                            name="verify" required />
-                                        <label for="verify" class="form-check-label text-dark"> Are you
-                                            sure you
-                                            want to create Resume?
-                                        </label>
-                                    </div>
+
 
                                     <!-- Submit button -->
-                                    <button type="submit" id="submitbtn" class="btn btn-lg btn-primary w-200px">Create
+                                    <button type="submit" id="submitbtn" class="btn btn-lg btn-success w-200px">Create
                                         Resume</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card-body px-0 -->
                 </div>
             </div>
         </div>

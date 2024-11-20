@@ -30,8 +30,7 @@
 <body id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center bgi-no-repeat bg-body-color">
 
     <!--begin::Root-->
-    <div class="d-flex flex-column flex-root" id="kt_app_root"
-        style="background-image: url(assets/media/misc/auth-bg.png)">
+    <div class="d-flex flex-column flex-root" id="kt_app_root" style="background-color: #890552">
         <!--begin::Authentication - Sign-in -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid justify-content-center py-5">
             <!--begin::Logo-->
