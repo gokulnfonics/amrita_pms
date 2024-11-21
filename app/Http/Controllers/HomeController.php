@@ -26,7 +26,17 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->isStudent() || Auth::user()->isRecruiter()) {
+
+            $userId = Auth::user()->id;
+        $user = User::where('id', $userId)->first();
+        if($user->profile_updated == TRUE){
+
+            return view('home');
+
+        }else{
+
         return redirect()->route('registration');
+        }
         }else{
 
             return view('home');

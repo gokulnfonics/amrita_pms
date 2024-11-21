@@ -155,13 +155,13 @@ span.position-absolute i {
                                                             placeholder="Phone Number" class="form-control" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-sm-6 col-12 mb-4">
+                                                <!--<div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
                                                         <label class="form-label fw-bold text-secondary">Website</label>
                                                         <input type="url" id="website" name="website"
                                                             class="form-control" placeholder="Website" />
                                                     </div>
-                                                </div>
+                                                </div>-->
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
                                                         <label
@@ -170,7 +170,7 @@ span.position-absolute i {
                                                             class="form-control" placeholder="LinkedIn" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-sm-6 col-12 mb-4">
+                                                <!--<div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
                                                         <label class="form-label fw-bold text-secondary">Github</label>
                                                         <input type="url" id="github_link" name="github_link"
@@ -183,7 +183,7 @@ span.position-absolute i {
                                                         <input type="text" id="twitter" name="twitter"
                                                             class="form-control" placeholder="Twitter" />
                                                     </div>
-                                                </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
