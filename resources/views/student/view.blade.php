@@ -2,8 +2,9 @@
 
 <style>
 .content-wrapper {
-    width: 1240px;
+    width: 80%;
     margin: 0px auto;
+    max-width: 1240px;
 }
 
 body {

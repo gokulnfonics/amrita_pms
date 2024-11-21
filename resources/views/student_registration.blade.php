@@ -4,6 +4,7 @@
 .content-wrapper {
     width: 80%;
     margin: 0px auto;
+    max-width: 1240px;
 }
 
 h2 {
