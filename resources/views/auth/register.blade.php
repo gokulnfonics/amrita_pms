@@ -62,10 +62,22 @@
 									@error('fname')<div class="invalid-feedback">{{ $message }}</div> @enderror
 									<!--end::Email-->
                                     <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                                    <div class="fv-row mb-8 fv-plugins-icon-container">
+                                   
+									<div class="fv-row mb-8 fv-plugins-icon-container">
 									<!--begin::Name-->
 									<input type="text" placeholder="Last Name" name="lname" autocomplete="off" class="form-control bg-transparent @error('lname') is-invalid @enderror" value="{{ old('lname') }}">
 									@error('lname')<div class="invalid-feedback">{{ $message }}</div> @enderror
+									<!--end::Email-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+									<div class="fv-row mb-8 fv-plugins-icon-container">
+									<!--begin::Name-->
+									<select class="form-control @error('role') is-invalid @enderror"
+                                                 id="role" name="role">
+												 <option value="">Select Role</option>
+												 <option value="Recruiter">Recruiter</option>
+												 <option value="Student">Student</option>
+												 </select>
+										@error('role')<div class="invalid-feedback">{{ $message }}</div> @enderror
 									<!--end::Email-->
                                     <div class="fv-plugins-message-container invalid-feedback"></div></div>
                                     <div class="fv-row mb-8 fv-plugins-icon-container"><!--begin::Email-->
@@ -74,6 +86,7 @@
 									<!--end::Email-->
 								<div class="fv-plugins-message-container invalid-feedback"></div></div>
 								<!--begin::Input group-->
+								
 								<div class="fv-row mb-8 fv-plugins-icon-container" data-kt-password-meter="true">
 									<!--begin::Wrapper-->
 									<div class="mb-1">

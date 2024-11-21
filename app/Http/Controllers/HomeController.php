@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->isStudent()) {
+        if (Auth::user()->isStudent() || Auth::user()->isRecruiter()) {
         return redirect()->route('registration');
         }else{
 
@@ -36,7 +36,8 @@ class HomeController extends Controller
 
     public function registration()
     {
-
+   
+        if (Auth::user()->isStudent()){
         
         $userId = Auth::user()->id;
         $student = User::where('id', $userId)->first();
@@ -44,6 +45,11 @@ class HomeController extends Controller
        // print_R($student);exit();
         
         return view('student_registration',compact('student'));
+    }else{
+
+        return view('recruiter_registration');
+
+    }
     }
 
 }
