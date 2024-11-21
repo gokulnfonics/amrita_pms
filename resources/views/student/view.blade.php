@@ -1,16 +1,16 @@
 {{ view('layouts.blank') }}
 
 <style>
-.content-wrapper {
-    width: 80%;
-    margin: 0px auto;
-    max-width: 1240px;
-}
+    .content-wrapper {
+        width: 80%;
+        margin: 0px auto;
+        max-width: 1240px;
+    }
 
-body {
-    color: #545e6c;
-    background: #d5d5d5 !important;
-}
+    body {
+        color: #545e6c;
+        background: #d5d5d5 !important;
+    }
 </style>
 
 <div class="content-wrapper mt-4">
@@ -23,7 +23,8 @@ body {
                         <h3 class="card-title">
                             {{ isset($information['student']['first_name']) ? $information['student']['first_name'] : 'Empty' }}
                             {{ isset($information['student']['last_name']) ? $information['student']['last_name'] : '' }}'s
-                            Profile</h3>
+                            Profile
+                        </h3>
                     </div>
                     <div class="card-body">
                         <div class="container-fluid wrapper">
@@ -119,9 +120,15 @@ body {
                                         <h2 class="container-block-title">Languages</h2>
                                         <ul class="list-unstyled interests-list">
                                             @foreach ($information['language_info'] as $language_info)
-                                            <li>{{ isset($language_info['language']) ? $language_info['language'] : '' }}
+                                            <li>
+                                                @if ($language_info->fetchlanguage && is_object($language_info->fetchlanguage))
+                                                <!-- Access the 'name' of the related TblLanguage model -->
+                                                {{ $language_info->fetchlanguage->name ?? 'Unknown' }}
+                                                @else
+                                                {{ $language_info->language ?? 'Unknown' }}
+                                                @endif
                                                 <span class="lang-desc">
-                                                    ({{ isset($language_info['language_level']) ? $language_info['language_level'] : '' }})
+                                                    ({{ $language_info->language_level ?? 'N/A' }})
                                                 </span>
                                             </li>
                                             @endforeach

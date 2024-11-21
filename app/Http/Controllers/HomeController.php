@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TblLanguage;
 
 use Illuminate\Http\Request;
 
@@ -52,9 +53,9 @@ class HomeController extends Controller
         $userId = Auth::user()->id;
         $student = User::where('id', $userId)->first();
 
-       // print_R($student);exit();
+        $languages = TblLanguage::all();
         
-        return view('student_registration',compact('student'));
+        return view('student_registration',compact('student','languages'));
     }else{
 
         return view('recruiter_registration');

@@ -12,6 +12,7 @@ use App\Models\Languages;
 use App\Models\PersonalInformation;
 use App\Models\Projects;
 use App\Models\Skills;
+use App\Models\TblLanguage;
 use Illuminate\Http\Request;
 
 class student extends Controller
@@ -199,8 +200,14 @@ class student extends Controller
             $experience_information     = Experience::where('user_id', $id)->get()->toArray();
             $project_information        = Projects::where('user_id', $id)->get()->toArray();
             $skill_information          = Skills::where('user_id', $id)->get()->toArray();
-            $language_information       = Languages::where('user_id', $id)->get()->toArray();
+            //$language_information       = Languages::where('user_id', $id)->get()->toArray();
+            $language_information = Languages::where('user_id', $id)
+            ->with('fetchlanguage') 
+                ->get();
+
             $interest_information       = Interests::where('user_id', $id)->get()->toArray();
+
+           // print_r($language_information);exit();
 
 
             $info['student']      = $student;
@@ -249,5 +256,11 @@ class student extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getLanguages()
+    {
+        $languages = TblLanguage::all(); // Fetch all languages from the database
+        return response()->json($languages); // Return the languages as JSON
     }
 }
