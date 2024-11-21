@@ -51,6 +51,12 @@ class student extends Controller
                 $student->last_name = $request->last_name;
                 $student->save();
 
+                  $userId = $request->sid;
+                $personalInfo = PersonalInformation::where('user_id', $userId)->first();
+
+                if ($personalInfo) {
+                    $personalInfo->forceDelete();
+                }
         $personal_info = new PersonalInformation();
         $personal_info->user_id        = $student->id;
         $personal_info->profile_title     = $request->profile_title;
@@ -62,7 +68,11 @@ class student extends Controller
         $personal_info->image_path        = isset($picture) && !empty($picture) ? $picture : '';
         $personal_info->save();
 
-       
+        $contactInfo = ContactInformation::where('user_id', $userId)->first();
+
+        if ($contactInfo) {
+            $contactInfo->forceDelete();
+        }
         $contact_info = new ContactInformation();
         $contact_info->user_id          = $student->id;
         $contact_info->email            = $request->email;
@@ -72,6 +82,9 @@ class student extends Controller
         $contact_info->github_link      = $request->github_link;
         $contact_info->twitter          = $request->twitter;
         $contact_info->save();
+
+
+        $educationInfo = Education::where('user_id', $userId)->forceDelete();
 
 
         $edu_count = count($request->degree_title);
@@ -89,6 +102,7 @@ class student extends Controller
             }
         }
 
+        $experienceInfo = Experience::where('user_id', $userId)->forceDelete();
 
         $exp_count = count($request->job_title);
         if ($exp_count != 0) {
@@ -105,6 +119,8 @@ class student extends Controller
             }
         }
 
+        $projectsInfo = Projects::where('user_id', $userId)->forceDelete();
+        
         $project_count = count($request->project_title);
         if ($project_count != 0) {
             for ($i = 0; $i < $project_count; $i++) {
@@ -116,6 +132,9 @@ class student extends Controller
                 $project_info->save();
             }
         }
+
+        $SkillsInfo = Skills::where('user_id', $userId)->forceDelete();
+        
 
         $skill_count = count($request->skill_name);
         if ($skill_count != 0) {
@@ -129,6 +148,10 @@ class student extends Controller
             }
         }
 
+        $LanguagesInfo = Languages::where('user_id', $userId)->forceDelete();
+
+        
+
         $lang_count = count($request->language);
         if ($lang_count != 0) {
             for ($i = 0; $i < $lang_count; $i++) {
@@ -141,6 +164,10 @@ class student extends Controller
             }
         }
 
+        $InterestsInfo = Interests::where('user_id', $userId)->forceDelete();
+
+        
+
         $interest_count = count($request->interest);
         if ($interest_count != 0) {
             for ($i = 0; $i < $interest_count; $i++) {
@@ -152,7 +179,7 @@ class student extends Controller
             }
         }
 
-        return redirect()->route('students.show', $student->id)->withSuccess("User Profile created successfully");
+        return redirect()->route('student.show', $student->id)->withSuccess("User Profile created successfully");
     }
 
     /**
