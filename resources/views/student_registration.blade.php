@@ -38,6 +38,22 @@ h2 {
     float: right;
     margin-top: 30px;
 }
+
+.card-body {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+span.position-absolute {
+    background: #F44336;
+    padding: 2px 8px;
+    right: 0px !important;
+    color: #fff !important;
+}
+
+span.position-absolute i {
+    color: #fff !important;
+}
 </style>
 
 <div class="content-wrapper mt-0">
@@ -53,7 +69,8 @@ h2 {
                     <div class="card-body px-0 pt-0">
                         <div class="row">
                             <div class="col-12 p-md-5 p-sm-4 p-3">
-                                <form action="{{route('student.store')}}"  id="createform" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('student.store')}}" id="createform" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
 
                                     <input type="hidden" name="sid" value="{{ Auth::user()->id }}" />
@@ -72,8 +89,9 @@ h2 {
                                                                 <label class="form-label fw-bold text-secondary">First
                                                                     name</label>
                                                                 <input type="text" id="first_name" name="first_name"
-                                                                    placeholder="First name" value="{{ old('first_name', $student['first_name']) }}" class="form-control"
-                                                                    required />
+                                                                    placeholder="First name"
+                                                                    value="{{ old('first_name', $student['first_name']) }}"
+                                                                    class="form-control" required />
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -81,7 +99,9 @@ h2 {
                                                                 <label class="form-label fw-bold text-secondary">Last
                                                                     name</label>
                                                                 <input type="text" id="last_name" name="last_name"
-                                                                    placeholder="Last name" value="{{ old('last_name', $student['last_name']) }}" class="form-control" />
+                                                                    placeholder="Last name"
+                                                                    value="{{ old('last_name', $student['last_name']) }}"
+                                                                    class="form-control" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -122,8 +142,9 @@ h2 {
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                     <div class="form-outline">
                                                         <label class="form-label fw-bold text-secondary">Email</label>
-                                                        <input type="email" id="email" name="email" value="{{ old('email', $student['email']) }}" placeholder="Email"
-                                                            class="form-control" />
+                                                        <input type="email" id="email" name="email"
+                                                            value="{{ old('email', $student['email']) }}"
+                                                            placeholder="Email" class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
