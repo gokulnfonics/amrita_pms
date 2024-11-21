@@ -22,6 +22,7 @@
     <link href="{{ url('/') }}/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('/') }}/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('/') }}/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link id="theme-style" rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -52,6 +53,7 @@
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
     <script src="{{ url('/') }}/assets/plugins/global/plugins.bundle.js"></script>
     <script src="{{ url('/') }}/assets/js/scripts.bundle.js"></script>
+    <script src="{{ url('/') }}/assets/js/userprofile.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Custom Javascript(used for this page only)-->
 

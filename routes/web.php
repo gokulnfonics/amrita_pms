@@ -19,5 +19,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function(){
+    if ( Auth::user()->isAdmin() ) {
+        return redirect(route('dashboard'));
+    }
+    if ( Auth::user()->isCoordinator() ) {
+        return redirect(route('dashboard'));
+    }
+    if ( Auth::user()->isRecruiter() ) {
+        return redirect(route('dashboard'));
+    }
+    if ( Auth::user()->isStudent() ) {
+        return redirect(route('dashboard'));
+    }
+})->name('dashboard');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::get('/registration', [App\Http\Controllers\HomeController::class, 'registration'])->name('registration');
+Route::resource('student',\App\Http\Controllers\resource\student::class);

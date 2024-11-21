@@ -22,6 +22,7 @@
 		<link href="{{ url('/') }}/assets/css/custom.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="{{ url('/') }}/assets/css/alertify/alertify.min.css"/>
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/alertify/default.min.css"/>
+	
 		<!--end::Global Stylesheets Bundle-->
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 	</head>
