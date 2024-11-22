@@ -175,7 +175,7 @@ span.position-absolute i {
                                                                         value="{{ isset($contact_info['phone_number']) ? $contact_info['phone_number'] : '' }}" />
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                                                            <!--<div class="col-md-4 col-sm-6 col-12 mb-4">
                                                                 <div class="form-outline">
                                                                     <label
                                                                         class="form-label fw-bold text-secondary">Website</label>
@@ -184,7 +184,7 @@ span.position-absolute i {
                                                                         placeholder="Website"
                                                                         value="{{ isset($contact_info['website']) ? $contact_info['website'] : '' }}" />
                                                                 </div>
-                                                            </div>
+                                                            </div>-->
                                                             <div class="col-md-4 col-sm-6 col-12 mb-4">
                                                                 <div class="form-outline">
                                                                     <label
@@ -195,7 +195,7 @@ span.position-absolute i {
                                                                         value="{{ isset($contact_info['linkedin_link']) ? $contact_info['linkedin_link'] : '' }}" />
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                                                            <!--<div class="col-md-4 col-sm-6 col-12 mb-4">
                                                                 <div class="form-outline">
                                                                     <label
                                                                         class="form-label fw-bold text-secondary">Github</label>
@@ -204,8 +204,8 @@ span.position-absolute i {
                                                                         placeholder="Github"
                                                                         value="{{ isset($contact_info['github_link']) ? $contact_info['github_link'] : '' }}" />
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                                                            </div>-->
+                                                            <!--<div class="col-md-4 col-sm-6 col-12 mb-4">
                                                                 <div class="form-outline">
                                                                     <label
                                                                         class="form-label fw-bold text-secondary">Twitter</label>
@@ -214,7 +214,7 @@ span.position-absolute i {
                                                                         placeholder="Twitter"
                                                                         value="{{ isset($contact_info['twitter']) ? $contact_info['twitter'] : '' }}" />
                                                                 </div>
-                                                            </div>
+                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>

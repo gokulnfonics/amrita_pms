@@ -296,10 +296,10 @@ class student extends Controller
             $contact_info->user_id          = $id;
             $contact_info->email            = $request->email;
             $contact_info->phone_number     = $request->phone_number;
-            $contact_info->website          = $request->website;
+            //$contact_info->website          = $request->website;
             $contact_info->linkedin_link    = $request->linkedin_link;
-            $contact_info->github_link      = $request->github_link;
-            $contact_info->twitter          = $request->twitter;
+            //$contact_info->github_link      = $request->github_link;
+            //$contact_info->twitter          = $request->twitter;
             $contact_info->save();
 
 
