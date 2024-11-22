@@ -86,7 +86,7 @@ span.position-absolute i {
                                     {{-- Personal Information --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2 class="fw-bold text-secondary">Personal Information</h2>
+                                            <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Personal Information</h2>
                                             <div class="form-outline mb-4">
                                                 <input type="hidden" id="user_id" name="user_id" class="form-control"
                                                     value="{{ isset($information['student']['id']) ? $information['student']['id'] : '' }}" />
@@ -151,7 +151,7 @@ span.position-absolute i {
                                     {{-- Contact Information --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2 class="fw-bold text-secondary">Contact Information</h2>
+                                            <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Contact Information</h2>
                                             @foreach ($information['contact_info'] as $contact_info)
                                                 <div class="card mb-4">
                                                     <div class="card-body">
@@ -229,10 +229,10 @@ span.position-absolute i {
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Education</h2>
+                                                    <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Education</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_education">Add
+                                                    <button class="btn btn-sm add-btn" id="add_education">Add
                                                         Education</button>
                                                 </div>
                                             </div>
@@ -301,10 +301,10 @@ span.position-absolute i {
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Experience</h2>
+                                                    <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Experience</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_experience">Add
+                                                    <button class="btn btn-sm add-btn" id="add_experience">Add
                                                         Experience</button>
                                                 </div>
                                             </div>
@@ -373,10 +373,10 @@ span.position-absolute i {
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Projects</h2>
+                                                    <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Projects</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_project">Add
+                                                    <button class="btn btn-sm add-btn" id="add_project">Add
                                                         Project</button>
                                                 </div>
                                             </div>
@@ -416,10 +416,10 @@ span.position-absolute i {
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Skills & Proficiency</h2>
+                                                    <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Skills & Proficiency</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_skill">Add
+                                                    <button class="btn btn-sm add-btn" id="add_skill">Add
                                                         Skill</button>
                                                 </div>
                                             </div>
@@ -473,10 +473,10 @@ span.position-absolute i {
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Languages</h2>
+                                                    <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Languages</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_language">Add
+                                                    <button class="btn btn-sm add-btn" id="add_language">Add
                                                         Language</button>
                                                 </div>
                                             </div>
@@ -545,10 +545,10 @@ span.position-absolute i {
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <h2 class="fw-bold text-secondary">Interests</h2>
+                                                    <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Interests</h2>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn btn-primary" id="add_interest">Add
+                                                    <button class="btn btn-sm add-btn" id="add_interest">Add
                                                         interest</button>
                                                 </div>
                                             </div>
