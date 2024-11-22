@@ -270,7 +270,7 @@ class student extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->verify == 1) {
+        
             $id = $request->user_id;
 
             $student = User::findOrFail($id);
@@ -511,9 +511,9 @@ class student extends Controller
                     $interest_count_local--;
                 }
             }
-        }
-
-        return redirect()->back()->withSuccess("User Profile updated successfully");
+        
+            return redirect()->route('student.show', $student->id)->withSuccess("User Profile updated successfully");
+        //return redirect()->back()->withSuccess("User Profile updated successfully");
     }
 
     /**

@@ -62,7 +62,7 @@ span.position-absolute i {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-8">
-                    <h1 class="m-0">Edit User Profile</h1>
+                    <h1 class="m-0">Edit User Profile | {{$information['student']['first_name']}} {{$information['student']['last_name']}}</h1>
                 </div>
                 
             </div>
@@ -74,9 +74,7 @@ span.position-absolute i {
         <div class="row mt-3">
             <div class="col-12">
                 <div class="card mb-5">
-                    <div class="card-header">
-                        <h3 class="card-title">Edit user Profile</h3>
-                    </div>
+                    
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 p-md-5 p-sm-4 p-3">
@@ -576,17 +574,9 @@ span.position-absolute i {
                                     </div>
 
 
-                                    <!-- Checkbox -->
-                                    <div class="form-check d-flex justify-content-center mb-4">
-                                        <input class="form-check-input me-2" type="checkbox" value="1"
-                                            id="verify" name="verify" required />
-                                        <label for="verify" class="form-check-label text-dark"> Are you sure you
-                                            want to save these changes?
-                                        </label>
-                                    </div>
 
                                     <!-- Submit button -->
-                                    <button type="submit" id="submitbtn" class="btn btn-lg btn-success w-100">Save
+                                    <button type="submit" id="submitbtn" class="btn btn-lg btn-success w-200px">Save
                                         Changes</button>
                                 </form>
                             </div>
