@@ -144,7 +144,7 @@
                                                                 class="required form-label fw-bold text-secondary">Company
                                                                 Name</label>
                                                             <input type="text" id="company_name" name="company_name"
-                                                                placeholder="Company Name" class="form-control" required />
+                                                                placeholder="Company Name"  value="{{ old('company_name', $recruiter['first_name']) }}" class="form-control" required />
                                                         </div>
                                                     </div>
                                                     <div class="d-flex flex-column flex-md-row gap-5 ">
@@ -152,7 +152,7 @@
                                                             <label class="required form-label">Email</label>
                                                             <input type="text" name="email"
                                                                 class="form-control  @error('email') is-invalid @enderror"
-                                                                placeholder="Email" value="" />
+                                                                placeholder="Email" value="{{ old('email', $recruiter['email']) }}" />
                                                             @error('email')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
@@ -168,6 +168,7 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <div class="col-sm-6 col-12">

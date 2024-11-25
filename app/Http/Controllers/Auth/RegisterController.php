@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
 
 class RegisterController extends Controller
 {
@@ -49,19 +51,25 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'fname' => ['required', 'string', 'max:255'],
-            'lname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => [
                 'required',
                 'string',
                 'min:8',
                 'regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).+$/',
             ],
-        ],[
+            'fname' => [Rule::requiredIf($data['role'] === 'Student')],
+            'lname' => [Rule::requiredIf($data['role'] === 'Student')],
+            'cname' => [Rule::requiredIf($data['role'] === 'Recruiter')],
+        ], [
             'password.regex' => 'The password must be at least 8 characters long and include a mix of letters, numbers, and symbols.',
+            'fname.required_if' => 'The first name is required when the role is Student.',
+            'lname.required_if' => 'The last name is required when the role is Student.',
+            'cname.required_if' => 'The company name is required when the role is Recruiter.',
         ]);
+        
+        
     }
 
     /**
@@ -73,8 +81,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'first_name' => $data['fname'],
-            'last_name' => $data['lname'],
+            'first_name' => $data['role'] === 'Recruiter' ? $data['cname'] : $data['fname'],
+            'last_name' => $data['role'] === 'Recruiter' ? null : $data['lname'], // Recruiters may not have a last name
             'email' => $data['email'],
             'role' => $data['role'],
             'password' => Hash::make($data['password']),

@@ -58,7 +58,10 @@ class HomeController extends Controller
         return view('student_registration',compact('student','languages'));
     }else{
 
-        return view('recruiter_registration');
+        $userId = Auth::user()->id;
+        $recruiter = User::where('id', $userId)->first();
+
+        return view('recruiter_registration',compact('recruiter'));
 
     }
     }
