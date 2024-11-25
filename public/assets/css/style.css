@@ -87,28 +87,31 @@ p {
     color: #6c757d;
 }
 
-
+.br-top-green-5x
+{
+    border-top: 0px solid #35776d;
+}
 
 .wrapper {
     position: relative;
-    background: #35776d;
+ 
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-wrapper {
-    background: #35776d;
+    background: #e1e1e1;
     height: 100%;
     min-height: 800px;
     color: #fff;
     padding-bottom: 30px;
 }
 .sidebar-wrapper a {
-    color: #fff;
+    color: #35776d;
 }
 .sidebar-wrapper .profile-container {
-    padding: 40px 20px 20px;
+    padding: 0px 20px 20px;
  
     text-align: center;
     color: #fff;
@@ -116,9 +119,10 @@ p {
 .sidebar-wrapper .name {
     margin-top: 0;
     margin-bottom: 10px;
+    color: #35776d;
 }
 .sidebar-wrapper .tagline {
-    color: rgba(255, 255, 255, 0.9);    font-size: 16px;
+    color: #333;    font-size: 16px;
     font-weight: 400;
     margin-top: 0;
     margin-bottom: 0;
@@ -153,30 +157,37 @@ p {
 .sidebar-wrapper .degree {
     margin-top: 30px;
     margin-bottom: 5px;
+    color: #35776d;
+}
+.fa-solid,.fa-brands, .fas{
+    color: #35776d !important;  
 }
 .sidebar-wrapper .education-container .item {
     margin-bottom: 15px;
+    color: #333;
 }
 .sidebar-wrapper .education-container .item:last-child {
     margin-bottom: 0;
 }
 .sidebar-wrapper .education-container .meta {
-    color: rgba(255, 255, 255, 0.9);    font-weight: 500;
+    color: #333; 
+    font-weight: 500;
     margin-bottom: 0px;
     margin-top: 0;
-    font-size: 14px;
+    font-size: 16px;
 }
 .sidebar-wrapper .education-container .time {
-    color: rgba(255, 255, 255, 0.9);    font-weight: 500;
-    margin-bottom: 0px;
+    color: #333;   font-weight: 500;
+    margin-bottom: 10px;
 }
 .sidebar-wrapper .languages-container .lang-desc {
-    color: rgba(255, 255, 255, 0.9);}
+    color: #333; }
 .sidebar-wrapper .languages-list {
     margin-bottom: 0;
 }
 .sidebar-wrapper .languages-list li {
     margin-bottom: 10px;
+    color: #35776d;
 }
 .sidebar-wrapper .languages-list li:last-child {
     margin-bottom: 0;
@@ -186,6 +197,7 @@ p {
 }
 .sidebar-wrapper .interests-list li {
     margin-bottom: 10px;
+    color: #35776d;
 }
 .sidebar-wrapper .interests-list li:last-child {
     margin-bottom: 0;

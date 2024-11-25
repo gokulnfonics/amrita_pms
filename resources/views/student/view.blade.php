@@ -11,9 +11,13 @@ body {
     color: #545e6c;
     background: #f1f1f1 !important;
 }
+
+.card {
+    background: transparent !important;
+}
 </style>
 
-<div class="content-wrapper mt-4">
+<div class="content-wrapper mt-0">
 
     <div class="container-fluid">
         <div class="row mt-10 mb-10">
@@ -21,12 +25,12 @@ body {
                 <div class="card mb-5">
                     <div class="card-body">
                         <div class="container-fluid wrapper">
-                            <div class="row">
-                                <div class="sidebar-wrapper col-4">
+                            <div class="row pt-3 ">
+                                <div class="sidebar-wrapper col-4 br-top-green-5x py-15">
                                     <div class="profile-container">
-                                        <img class="profile box-image-preview img-fluid img-circle elevation-2"
+                                        <img class="profile box-image-preview img-fluid"
                                             src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('assets/images/'. $information['personal_info']['image_path'])  : asset('assets/images/user-thumb.jpg') }}"
-                                            alt="" style=" border-radius: 10px;" />
+                                            alt="" style=" border-radius: 0px;" />
                                         <h1 class="name">
                                             {{ isset($information['student']['first_name']) ? $information['student']['first_name'] : '' }}
                                             {{ isset($information['student']['last_name']) ? $information['student']['last_name'] : '' }}
@@ -141,7 +145,7 @@ body {
                                 </div>
                                 <!--//sidebar-wrapper-->
 
-                                <div class="main-wrapper col-8">
+                                <div class="main-wrapper col-8 br-top-green-5x py-15">
                                     @if (!empty($information['personal_info']['about_me']))
                                     <section class="section summary-section">
                                         <h2 class="section-title">
