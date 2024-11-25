@@ -261,3 +261,4 @@ body {
         <!-- /.row -->
     </div>
 </div>
+{{ view('layouts.footer') }}
