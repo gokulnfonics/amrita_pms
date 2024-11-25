@@ -232,17 +232,28 @@
 									<!--begin:Menu item-->
 
 									<!--begin:Menu item-->
+									@if( !empty(Auth::user()->isAdmin()) )
+									<div class="menu-item pt-5">
+										<!--begin:Menu content-->
+										<div class="menu-content">
+											<span class="menu-heading fw-bold text-uppercase fs-7">Company</span>
+										</div>
+										<!--end:Menu content-->
+									</div>
 
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion  @if(in_array(Route::currentRouteName(),array('user.index','user.create','user.edit'))) show @endif">
+										<!--begin:Menu link-->
+										<span class="menu-link">
+											<span class="menu-icon">
+											<i class="fa-solid fa-users f-15 p-0"></i>
+											</span>
+											<span class="menu-title">Company</span>
+											<!-- <span class="menu-arrow"></span> -->
+										</span>
+									</div>
+									@endif
 									<!--end:Menu item-->
 
-								
-										<!--begin:Menu item-->
-									
-									
-									<!--end:Menu item-->
-		
-
-									
 									<div class="menu-item pt-5">
 										<!--begin:Menu content-->
 										<div class="menu-content">
