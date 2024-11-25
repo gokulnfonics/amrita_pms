@@ -40,3 +40,4 @@ Route::get('/registration', [App\Http\Controllers\HomeController::class, 'regist
 Route::resource('student',\App\Http\Controllers\resource\student::class);
 Route::get('/getlanguages', [\App\Http\Controllers\resource\student::class, 'getLanguages']);
 Route::resource('recruiter',\App\Http\Controllers\resource\recruiter::class);
+Route::resource('job',\App\Http\Controllers\resource\job::class);
