@@ -26,7 +26,7 @@ body {
                                     <div class="profile-container">
                                         <img class="profile box-image-preview img-fluid img-circle elevation-2"
                                             src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('assets/images/'. $information['personal_info']['image_path'])  : asset('assets/images/user-thumb.jpg') }}"
-                                            alt="" style="height:200px; width:200px;" />
+                                            alt="" style=" border-radius: 10px;" />
                                         <h1 class="name">
                                             {{ isset($information['student']['first_name']) ? $information['student']['first_name'] : '' }}
                                             {{ isset($information['student']['last_name']) ? $information['student']['last_name'] : '' }}
@@ -145,9 +145,6 @@ body {
                                     @if (!empty($information['personal_info']['about_me']))
                                     <section class="section summary-section">
                                         <h2 class="section-title">
-                                            <span class="icon-holder">
-                                                <i class="fa-solid fa-user"></i>
-                                            </span>
                                             Career Profile
                                         </h2>
                                         <div class="summary">
@@ -163,8 +160,7 @@ body {
                                     @if (!empty($information['experience_info']))
                                     <section class="section experiences-section">
                                         <h2 class="section-title">
-                                            <span class="icon-holder"><i class="fa-solid fa-briefcase"></i>
-                                            </span>
+
                                             Experiences
                                         </h2>
                                         @foreach ($information['experience_info'] as $experience_info)
@@ -202,7 +198,6 @@ body {
                                     @if (!empty($information['project_info']))
                                     <section class="section projects-section">
                                         <h2 class="section-title">
-                                            <span class="icon-holder"><i class="fa-solid fa-archive"></i></span>
                                             Projects
                                         </h2>
                                         @foreach ($information['project_info'] as $project_info)
@@ -226,8 +221,7 @@ body {
 
                                     @if (!empty($information['skill_info']))
                                     <section class="skills-section section">
-                                        <h2 class="section-title"><span class="icon-holder"><i
-                                                    class="fa-solid fa-rocket"></i></span>Skills
+                                        <h2 class="section-title">Skills
                                             &amp; Proficiency</h2>
                                         <div class="skillset">
                                             @foreach ($information['skill_info'] as $skill_info)
