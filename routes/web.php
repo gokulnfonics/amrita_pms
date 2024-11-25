@@ -39,3 +39,4 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/registration', [App\Http\Controllers\HomeController::class, 'registration'])->name('registration');
 Route::resource('student',\App\Http\Controllers\resource\student::class);
 Route::get('/getlanguages', [\App\Http\Controllers\resource\student::class, 'getLanguages']);
+Route::resource('recruiter',\App\Http\Controllers\resource\recruiter::class);

@@ -102,7 +102,11 @@
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="" class="menu-link px-5">My Profile</a>
+											@if (Auth::user()->isRecruiter())
+												<a href="{{ route('recruiter.edit', ['recruiter' => Auth::user()->id]) }}" class="menu-link px-5">My Profile</a>
+											@elseif (Auth::user()->isStudent())
+												<a href="{{ route('student.edit', ['student' => Auth::user()->id]) }}" class="menu-link px-5">My Profile</a>
+											@endif
 										</div>
 										<!--end::Menu item-->							
 																		

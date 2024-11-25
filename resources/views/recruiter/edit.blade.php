@@ -30,16 +30,8 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            Recruiter </h1>
+                        Edit User Profile | {{$information['recruiter']['first_name']}} </h1>
                         <!--end::Title-->
-                        <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb fw-semibold fs-7 my-0 pt-1">
-                            <li class="breadcrumb-item text-muted">
-                                <!-- To complete your sign-up, please update all the required fields in your profile. This step
-                                                is necessary to activate your account. -->
-                            </li>
-                        </ul>
-                        <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page title-->
 
@@ -69,17 +61,17 @@
                                 <div class="loader"></div>
                             </div>
                             <!--begin::Form-->
-                            <form id="kt_account_profile_details_form" class="form" method="POST" action="{{route('recruiter.store')}}"
+                            <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('recruiter.update', ['recruiter' => $information['recruiter']['id']]) }}"
                                 enctype="multipart/form-data">
                                 @csrf
-
-                                <input type="hidden" name="rid" value="{{ Auth::user()->id }}" />
+                                @method('PUT')
+                                <!-- <input type="hidden" name="rid" value="{{ Auth::user()->id }}" /> -->
 
                                 <div class="row border-top p-9 pt-5">
                                     <div class="col-12">
                                         <!-- <h2 class="fw-bold br-btm py-4 mb-10">Personal Information</h2> -->
                                         <div class="form-outline mb-4">
-                                            <input type="hidden" id="user_id" name="user_id" class="form-control" />
+                                            <input type="hidden" id="user_id" name="user_id" class="form-control" value="{{ isset($information['recruiter']['id']) ? $information['recruiter']['id'] : '' }}" />
                                         </div>
                                         <div class="row mb-4">
                                             <div class="col-sm-6 col-12">
@@ -90,7 +82,7 @@
                                                                 class="required form-label fw-bold text-secondary">Company
                                                                 Name</label>
                                                             <input type="text" id="company_name" name="company_name"
-                                                                placeholder="Company Name"  value="{{ old('company_name', $recruiter['first_name']) }}" class="form-control" required />
+                                                                placeholder="Company Name"  value="{{ isset($information['recruiter']['first_name']) ? $information['recruiter']['first_name'] : '' }}" class="form-control" required />
                                                         </div>
                                                     </div>
                                                     <div class="d-flex flex-column flex-md-row gap-5 mb-4">
@@ -98,7 +90,8 @@
                                                             <label class="required form-label">Email</label>
                                                             <input type="text" name="email"
                                                                 class="form-control  @error('email') is-invalid @enderror"
-                                                                placeholder="Email" value="{{ old('email', $recruiter['email']) }}" />
+                                                                placeholder="Email" value="{{ $information['contact_info']->email ?? '' }}"
+" />
                                                             @error('email')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
@@ -108,7 +101,7 @@
                                                             <label class="required form-label">Phone</label>
                                                             <input type="text" name="phone"
                                                                 class="form-control @error('phone') is-invalid @enderror"
-                                                                placeholder="Phone" value="" />
+                                                                placeholder="Phone" value="{{ $information['contact_info']->phone_number ?? '' }}" />
                                                             @error('phone')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
@@ -119,7 +112,7 @@
                                                             <label
                                                                 class="required form-label fw-bold text-secondary">Website</label>
                                                             <input type="url" id="website" name="website"
-                                                                placeholder="Website"  value="" class="form-control" required/>
+                                                                placeholder="Website"  value="{{ $information['contact_info']->website ?? '' }}" class="form-control" required/>
                                                         </div>
                                                     </div>
 
@@ -131,7 +124,7 @@
                                                         accept="image/png, image/jpeg, image/jpg"
                                                         onchange="display_image(this);" class="d-none upload-box-image">
                                                     <img class="box-image-preview img-fluid img-circle elevation-2"
-                                                        src="{{ asset('assets/media/logos/dummy-logo.png') }}"
+                                                        src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('assets/images/' . $information['personal_info']['image_path']) : asset('assets/media/logos/dummy-logo.png') }}"
                                                         alt="Logo"
                                                         onclick="$(this).closest('.profile_picture').find('input').click();"
                                                         style="height:150px; width:150px;">
@@ -160,7 +153,7 @@
 
                                             <div class="fv-row flex-row-fluid">
                                                 
-                                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address">{{ old('address') }}</textarea>
+                                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address">{{ $information['contact_info']->address ?? '' }}</textarea>
                                                 @error('address')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -192,7 +185,7 @@
                                         <!--begin::Label-->
                                         <!-- <label class="required form-label">Profile Description</label> -->
                                         <textarea class="form-control @error('profile') is-invalid @enderror" name="profile"
-                                            placeholder="Profile Description">{{ old('profile') }}</textarea>
+                                            placeholder="Profile Description">{{ isset($information['personal_info']['about_me']) ? $information['personal_info']['about_me'] : '' }}</textarea>
                                         @error('profile')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
