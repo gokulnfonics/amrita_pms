@@ -46,10 +46,10 @@
                              <div class="loader"></div>
                          </div>
                                 <!--begin::Form-->
-                                <form id="kt_invoice_form" method="POST" action=""
+                                <form id="kt_invoice_form" method="POST" action="{{route('job.store')}}"
                                     enctype="multipart/form-data">
                                     @csrf
-
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                                     <!--begin::Wrapper-->
                                     <div class="mb-0">
                                         <!--begin::Row-->
@@ -78,8 +78,7 @@
                                                                         class="form-control fw-bold pe-5 @error('job_date') is-invalid @enderror"
                                                                         placeholder="Select date" id="job_date"
                                                                         name="job_date"
-                                                                        value="{{ old('job_date') }}"
-                                                                        type="text">
+                                                                        value="{{ old('job_date') }}">
                                                                     @error('job_date')<div
                                                                         class="invalid-feedback">{{ $message }}</div>
                                                                     @enderror
@@ -321,6 +320,10 @@
 <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 <!--end::Global Stylesheets Bundle-->
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
 var hostUrl = "{{ asset('assets/') }}";
@@ -364,65 +367,15 @@ $(document).ready(function() {
 
 });
 
-
-
-
-function calculateTotalCost() {
-    const costInput = document.getElementById('order_cost');
-    const gstInput = document.getElementById('order_gst');
-    const totalCostInput = document.getElementById('total_cost');
-
-    // Get values from the input fields
-    const cost = parseFloat(costInput.value) || 0;
-    const gstPercentage = parseFloat(gstInput.value) || 0;
-
-    // Calculate the total cost
-    const totalCost = cost + (cost * gstPercentage) / 100;
-
-
-    // Update the total cost field
-    totalCostInput.value = totalCost.toFixed(2); // Set the value with two decimal places
-
-    setCurrencyFormatting('#total_cost');
-}
-</script>
-<script>
-function updateFileName() {
-    var input = document.getElementById('file-upload');
-    var fileName = input.files.length > 0 ? input.files[0].name : 'Upload reference document.';
-    document.getElementById('file-name').textContent = fileName;
-}
-</script>
-<script>
-document.getElementById('kt_invoice_form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Show the SweetAlert confirmation dialog
-    swal({
-        title: "Are you sure?",
-        text: "Do you really want to submit this Proposal?",
-        icon: "warning",
-        buttons: {
-            cancel: {
-                text: "Cancel",
-                value: null,
-                visible: true,
-                closeModal: true,
-            },
-            confirm: {
-                text: "Submit",
-                value: true,
-                visible: true,
-                closeModal: true
-            }
-        },
-        dangerMode: true,
-    }).then((willSubmit) => {
-        if (willSubmit) {
-            document.getElementById('loaderOverlay').style.display = 'flex';
-            this.submit(); 
-        }
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#job_date", {
+        defaultDate: new Date(), // Sets the default date to the current date
+        dateFormat: "Y-m-d", // Use a standard format for backend compatibility
+        placeholder: "Select date" // Placeholder text
     });
 });
+
 </script>
+
+
 @endsection
