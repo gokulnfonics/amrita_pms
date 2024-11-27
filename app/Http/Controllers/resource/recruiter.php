@@ -17,6 +17,13 @@ class recruiter extends Controller
      */
     public function index()
     {
+        $recruiters = User::where('role', 'recruiter')->where('profile_updated', TRUE)  
+        ->with(['personalInformation', 'contactInformation']) 
+        ->get();
+
+       //print_r($recruiters);exit();
+
+        return view('recruiter.index', ['recruiters' => $recruiters]);
        
     }
 
@@ -27,7 +34,7 @@ class recruiter extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -160,5 +167,49 @@ class recruiter extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approve(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+
+        if($status == 'approved'){
+            $cstatus = 1;
+        }else{
+            $cstatus = 0;
+        }
+
+        $recruiter = User::find($id);
+
+        if (!$recruiter) {
+            return response()->json(['success' => false, 'message' => 'Item not found']);
+        }
+
+        $recruiter->user_status = $cstatus; 
+        $recruiter->save();
+
+        if($status == 'approved'){
+
+        return response()->json(['success' => true, 'message' => 'Company approved successfully']);
+
+        }else{
+            return response()->json(['success' => true, 'message' => 'Company disapprove successfully']); 
+            
+        }
+    }
+
+    public function deletecompany(Request $request)
+    {
+
+        $company = User::findOrFail($request->input('id'));
+        if (!$company) {
+        return response()->json(['error' => 'Company not found.'], 404);
+        }
+
+       
+        $company->forceDelete(); 
+        return response()->json(['success' => 'The Company has been deleted!']);
+    
     }
 }

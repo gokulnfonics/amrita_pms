@@ -62,4 +62,15 @@ class User extends Authenticatable
         return $this->role === 'Student';
     }
 
+
+    public function personalInformation()
+    {
+        return $this->hasOne(PersonalInformation::class, 'user_id', 'id');
+    }
+
+    public function contactInformation()
+    {
+        return $this->hasOne(ContactInformation::class, 'user_id', 'id');
+    }
+
 }
