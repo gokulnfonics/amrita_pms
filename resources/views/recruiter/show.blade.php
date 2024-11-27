@@ -57,7 +57,7 @@
                                         <div class="flex-column mb-0">
                                             <div class="fw-bold mt-5">Phone</div>
                                             <div class="text-gray-600">
-                                                <a href="#"
+                                                <a href=""
                                                     class="text-gray-600 text-hover-primary">{{ $recruiter->contactInformation->phone_number }}</a>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                         <!--begin::Details item-->
                                         <div class="flex-column mb-0  w-300px">
                                             <div class="fw-bold mt-0">Website</div>
-                                            <div class="text-gray-600">{{ $recruiter->contactInformation->website }}</div>
+                                            <a  href="{{ $recruiter->contactInformation->website }}" class="text-gray-600">{{ $recruiter->contactInformation->website }}</a>
                                         </div>
                                     </div>
 
