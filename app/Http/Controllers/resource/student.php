@@ -24,7 +24,13 @@ class student extends Controller
      */
     public function index()
     {
-        //
+        $students = User::where('role', 'student')->where('profile_updated', TRUE)  
+        ->with(['personalInformation', 'contactInformation']) 
+        ->get();
+
+       //print_r($recruiters);exit();
+
+        return view('student.index', ['students' => $students]);
     }
 
     /**
@@ -531,5 +537,19 @@ class student extends Controller
     {
         $languages = TblLanguage::all(); // Fetch all languages from the database
         return response()->json($languages); // Return the languages as JSON
+    }
+
+    public function deletestudent(Request $request)
+    {
+
+        $student = User::findOrFail($request->input('id'));
+        if (!$student) {
+        return response()->json(['error' => 'Student not found.'], 404);
+        }
+
+       
+        $student->forceDelete(); 
+        return response()->json(['success' => 'The student has been deleted!']);
+    
     }
 }
