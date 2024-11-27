@@ -30,7 +30,7 @@
 					<!--begin::Table container-->
 					<div class="table-responsive">
 						<!--begin::Table-->
-						<table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4" id="campustable">
+						<table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4" id="jobtable">
 							<!--begin::Table head-->
 							<thead>
 								<tr class="fw-bold">
@@ -137,7 +137,7 @@
 
 <script>
 	$(document).ready(function() {
-		$('#departmenttable').DataTable({
+		$('#jobtable').DataTable({
 			"iDisplayLength": 10,
 			"searching": true,
 			"recordsTotal": 3615,
