@@ -92,7 +92,8 @@ class recruiter extends Controller
      */
     public function show($id)
     {
-        //
+        $recruiter = User::with(['personalInformation', 'contactInformation'])->find($id);
+        return view('recruiter.show',compact('recruiter'));
     }
 
     /**
