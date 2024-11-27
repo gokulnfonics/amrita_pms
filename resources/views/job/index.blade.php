@@ -9,12 +9,6 @@
 			<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 				<!--begin::Title-->
 				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Job Listing</h1>
-				<!--end::Title-->
-				<!--begin::Breadcrumb-->
-				<!-- <ul class="breadcrumb fw-semibold fs-7 my-0 pt-1">
-											
-										</ul> -->
-				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
 			<!--begin::Button-->
@@ -46,7 +40,7 @@
 									<th class="min-w-150px">Location</th>
 									<th class="min-w-150px">Salary</th>
 									<th class="min-w-150px">Skill</th>
-									<!-- <th class="min-w-150px text-center">Actions</th> -->
+									<th class="min-w-150px text-center">Actions</th>
 								</tr>
 							</thead>
 							<!--end::Table head-->
@@ -98,6 +92,22 @@
                                                 {{ implode(', ', json_decode($job->skill)) }}
 											</div>
 										</div>
+									</td>
+									<td class="text-center">
+										<a href="#" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+										<i class="fa-solid fa-angle-down"></i></a>
+										<!--begin::Menu-->
+											<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+												<!--begin::Menu item-->
+												<div class="menu-item px-3">
+													<a href="" class="menu-link px-3">Edit</a>
+												</div>
+												<!--end::Menu item-->
+												<!--begin::Menu item-->
+												<div class="menu-item px-3">
+													<a href="" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+												</div>
+											</div>
 									</td>
 									
 								</tr>
