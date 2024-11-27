@@ -35,10 +35,10 @@
 							<thead>
 								<tr class="fw-bold">
 									<th class="w-50px">#</th>
-									<th class="min-w-150px">Date</th>
-									<th class="min-w-150px">Title</th>
+									<th class="min-w-100px">Date</th>
+									<th class="min-w-200px">Title</th>
 									<th class="min-w-150px">Location</th>
-									<th class="min-w-150px">Salary</th>
+									<th class="min-w-100px">Salary</th>
 									<th class="min-w-150px">Skill</th>
 									<th class="min-w-150px text-center">Actions</th>
 								</tr>
@@ -89,7 +89,7 @@
                                     <td>
 										<div class="">
 											<div class="">
-                                                {{ implode(', ', json_decode($job->skill)) }}
+												{{ implode(', ', json_decode($job->skill)) }}
 											</div>
 										</div>
 									</td>
@@ -100,7 +100,7 @@
 											<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="" class="menu-link px-3">Edit</a>
+													<a href="{{route('job.edit',$job->id)}}" class="menu-link px-3">Edit</a>
 												</div>
 												<!--end::Menu item-->
 												<!--begin::Menu item-->

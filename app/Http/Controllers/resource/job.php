@@ -89,7 +89,8 @@ class job extends Controller
      */
     public function edit($id)
     {
-        //
+        $jobs = jobs::find($id);
+        return view('job.edit',compact('jobs'));
     }
 
     /**
@@ -101,7 +102,36 @@ class job extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'job_title' => 'required',
+            'job_date' => 'required|date',
+            'description' => 'required',
+            'job_location' => 'required',
+            'salary' => 'required',
+            'criteria' => 'required',
+            'user_id' => 'required|exists:users,id',
+            'name.*' => 'string',
+            ]);
+                
+            try {
+                $jobs = jobs::findOrFail($id);
+                $jobs->user_id = $request->user_id;
+                $jobs->job_title = $request->job_title; 
+                $jobs->submission_date = $request->job_date; 
+                $jobs->job_description = $request->description; 
+                $jobs->job_location = $request->job_location; 
+                $jobs->criteria = $request->criteria; 
+                $jobs->salary = $request->salary; 
+                $jobs->skill = json_encode($request->name);
+
+                $jobs->save();
+        
+                return redirect()->route('job.index')->with('success', 'Job Updated Successfully');
+            } catch (\Exception $e) {
+                // Log the exception message
+                dd($e->getMessage());
+                return redirect()->back()->with('error', $e->getMessage());
+            }
     }
 
     /**

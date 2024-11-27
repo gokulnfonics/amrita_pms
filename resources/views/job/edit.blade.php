@@ -17,15 +17,8 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Create Job</h1>
-                    <!--end::Title-->
-                    <!--begin::Breadcrumb-->
-                    
-                    <!--end::Breadcrumb-->
+                        Edit Job</h1>
                 </div>
-                <!--end::Page title-->
-                <!--begin::Actions-->
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -46,9 +39,11 @@
                              <div class="loader"></div>
                          </div>
                                 <!--begin::Form-->
-                                <form id="kt_invoice_form" method="POST" action="{{route('job.store')}}"
+                                <form id="kt_invoice_form" method="POST" action="{{route('job.update',$jobs->id)}}"
                                     enctype="multipart/form-data">
                                     @csrf
+									@method('PUT')
+
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                                     <!--begin::Wrapper-->
                                     <div class="mb-0">
@@ -58,19 +53,10 @@
                                                 <div class="col-lg-12">
                                                     <div class="fv-row  d-flex justify-content-between">
                                                         <div class="fs-6 fw-bold text-gray-700 col-lg-3">
-                                                            <!--begin::Input group-->
-
-                                                            <!--begin::Label-->
                                                             <label class="required form-label">Final Submission Date</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Editor-->
-                                                            <!--begin::Input group-->
                                                             <div class="d-flex align-items-center justify-content-start flex-equal order-3 fw-row"
                                                                 data-bs-toggle="tooltip" data-bs-trigger="hover"
                                                                 data-kt-initialized="1">
-                                                                <!--begin::Date-->
-                                                                <!--end::Date-->
-                                                                <!--begin::Input-->
                                                                 <div
                                                                     class="position-relative d-flex align-items-center">
                                                                     <!--begin::Datepicker-->
@@ -78,7 +64,7 @@
                                                                         class="form-control fw-bold pe-5 @error('job_date') is-invalid @enderror"
                                                                         placeholder="Select date" id="job_date"
                                                                         name="job_date"
-                                                                        value="{{ old('job_date') }}">
+                                                                        value="{{ old('job_date', $jobs->submission_date) }}">
                                                                     @error('job_date')<div
                                                                         class="invalid-feedback">{{ $message }}</div>
                                                                     @enderror
@@ -108,7 +94,7 @@
                                                             <!--begin::Editor-->
                                                             <input id="" name="job_title" placeholder="Job Title"
                                                                 class="form-control mb-2 @error('job_title') is-invalid @enderror"
-                                                                value="{{ old('job_title') }}" />
+                                                                value="{{ old('job_title',$jobs->job_title) }}" />
                                                             @error('job_title')<div class="invalid-feedback">{{ $message }}
                                                             </div> @enderror
                                                             <!--end::Editor-->
@@ -121,10 +107,13 @@
                                                             <label class="required form-label">Description</label>
                                                             <!--end::Label-->
                                                             <!--begin::Editor-->
-                                                            <textarea id="summernote" name="description"
-                                                                class="form-control mb-2 @error('description') is-invalid @enderror summernote"></textarea>
-                                                            @error('description')<div class="invalid-feedback">
-                                                                {{ $message }}</div> @enderror
+                                                            <textarea id="summernote" name="description" 
+                                                                class="form-control mb-2 @error('description') is-invalid @enderror summernote">
+                                                                {{ $jobs->job_description }}
+                                                            </textarea>
+                                                            @error('description')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
                                                             <!--end::Editor-->
                                                         </div>
                                                     </div>
@@ -137,7 +126,7 @@
                                                             <!--begin::Editor-->
                                                             <input id="" type="text" name="job_location" placeholder="Job Location"
                                                                 class="form-control mb-2 @error('job_location') is-invalid @enderror"
-                                                                value="{{ old('job_location') }}" />
+                                                                value="{{ old('job_location', $jobs->job_location) }}" />
                                                             @error('job_location')<div class="invalid-feedback">{{ $message }}
                                                             </div> @enderror
                                                             <!--end::Editor-->
@@ -148,7 +137,7 @@
                                                             <label class="required form-label">Salary</label>
                                                             <input id="" type="number" name="salary" placeholder="Salary"
                                                                 class="form-control mb-2 @error('salary') is-invalid @enderror"
-                                                                value="{{ old('salary') }}" />
+                                                                value="{{ old('salary',$jobs->salary ) }}" />
                                                             @error('salary')<div class="invalid-feedback">{{ $message }}
                                                             </div> @enderror
                                                             <!--end::Editor-->
@@ -162,8 +151,9 @@
                                                             <label class="required form-label">Eligibility Criteria</label>
                                                             <!--end::Label-->
                                                             <!--begin::Editor-->
-                                                            <textarea name="criteria"
-                                                                class="form-control mb-2 @error('criteria') is-invalid @enderror summernote"></textarea>
+                                                            <textarea name="criteria" class="form-control mb-2 @error('criteria') is-invalid @enderror summernote">
+                                                                {{ $jobs->criteria }}
+                                                            </textarea>
                                                             @error('criteria')<div class="invalid-feedback">
                                                                 {{ $message }}</div> @enderror
                                                             <!--end::Editor-->
@@ -191,12 +181,16 @@
                                                         <!--end::Table head-->
                                                         <!--begin::Table body-->
                                                         <tbody data-kt-element="item-template">
+                                                        @php
+                                                            $skill= json_decode($jobs->skill);
+                                                        @endphp
+                                                        @foreach ($skill as $skill)
                                                             <tr class="border-bottom border-bottom-dashed"
                                                                 data-kt-element="item">
                                                                 <td class="pe-7">
                                                                     <input type="text"
                                                                         class="form-control form-control-solid mb-2 @error('name.*') is-invalid @enderror"
-                                                                        name="name[]" placeholder="Skill">
+                                                                        name="name[]" value="{{ $skill }}" placeholder="Skill">
                                                                         @error('name.*')<div class="invalid-feedback Skill-error" >
                                                                         Skill is required</div> @enderror
                                                                 </td>
@@ -225,6 +219,7 @@
                                                                     </button>
                                                                 </td>
                                                             </tr>
+                                                        @endforeach
                                                         </tbody>
                                                         <!--end::Table body-->
                                                         <!--begin::Table foot-->
@@ -353,7 +348,7 @@ $(document).ready(function() {
 
 document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#job_date", {
-        defaultDate: new Date(), // Sets the default date to the current date
+        //defaultDate: new Date(), // Sets the default date to the current date
         dateFormat: "Y-m-d", // Use a standard format for backend compatibility
         placeholder: "Select date" // Placeholder text
     });
