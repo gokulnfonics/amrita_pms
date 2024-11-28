@@ -132,6 +132,7 @@ p {
 }
 .sidebar-wrapper .profile {
     margin-bottom: 20px;
+    height: 240px !important;
 }
 .sidebar-wrapper .contact-list .svg-inline--fa {
     margin-right: 5px;
