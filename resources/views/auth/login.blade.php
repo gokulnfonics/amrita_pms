@@ -20,7 +20,7 @@
                 </a>
                 <!--end::Logo-->
                 <!--begin::Image-->
-                <img class="d-none d-lg-block mx-auto w-200px w-md-50 w-lg-400px"
+                <img class="d-none d-lg-block mx-auto w-100px w-md-50 w-lg-300px"
                     src="assets/media/misc/lg_bg.png" alt="" />
                 <!--end::Image-->
                 <!--begin::Title-->

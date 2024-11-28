@@ -19,7 +19,7 @@
 				</a>
 				<!--end::Logo-->
 				<!--begin::Image-->
-				<img class="d-none d-lg-block mx-auto w-200px w-md-50 w-lg-400px" src="assets/media/misc/lg_bg.png" alt="" />
+				<img class="d-none d-lg-block mx-auto w-100px w-md-50 w-lg-300px" src="assets/media/misc/lg_bg.png" alt="" />
 				<!--end::Image-->
 				<!--begin::Title-->
 				<h1 class="d-none d-lg-block text-white fs-1 fw-bolder text-center mt-6">Placement Management System</h1>
