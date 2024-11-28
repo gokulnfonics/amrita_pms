@@ -2,7 +2,7 @@
 
 <style>
 .content-wrapper {
-    margin: 0px auto;
+    /* margin: 0px auto; */
     max-width: 1240px;
 }
 
@@ -17,12 +17,29 @@ body {
 </style>
 
 <div class="content-wrapper mt-0">
-
     <div class="container-fluid">
         <div class="row mt-10 mb-10">
             <div class="col-12">
                 <div class="card mb-5">
-                    <div class="card-body">
+                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">
+                            <a href="" class="text-muted text-hover-primary fs-6">Student | {{ isset($information['student']['first_name']) ? $information['student']['first_name'] : '' }}
+                            {{ isset($information['student']['last_name']) ? $information['student']['last_name'] : '' }}</a>
+                        </li>
+                           <li class="breadcrumb-item">
+                           <a href="{{ route('student.index') }}" class="fs-6">
+                                Back to List
+                            </a>
+                        </li>
+                        <!--end::Item-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+              
+                </div>
+                        
+                    <div class="card-body pt-5">
                         <div class="container-fluid wrapper">
                             <div class="row pt-3 ">
                                 <div class="sidebar-wrapper col-4 br-top-green-5x py-15">

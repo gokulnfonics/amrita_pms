@@ -24,3 +24,8 @@
 .color-green {
     color: #45ab48 !important;
 }
+.breadcrumb {
+    padding: 0 2.25rem !important;
+    background-color:transparent !important;
+    justify-content:space-between;
+}
