@@ -1,20 +1,19 @@
 {{ view('layouts.admin') }}
 
 <style>
-    .content-wrapper {
-        width: 80%;
-        margin: 0px auto;
-        max-width: 1240px;
-    }
+.content-wrapper {
+    margin: 0px auto;
+    max-width: 1240px;
+}
 
-    body {
-        color: #545e6c;
-        background: #f1f1f1 !important;
-    }
+body {
+    color: #545e6c;
+    background: #f1f1f1 !important;
+}
 
-    .card {
-        background: transparent !important;
-    }
+.card {
+    background: transparent !important;
+}
 </style>
 
 <div class="content-wrapper mt-0">
@@ -118,7 +117,8 @@
                                         <ul class="list-unstyled interests-list">
                                             @foreach ($information['language_info'] as $language_info)
                                             <li>
-                                                @if ($language_info->fetchlanguage && is_object($language_info->fetchlanguage))
+                                                @if ($language_info->fetchlanguage &&
+                                                is_object($language_info->fetchlanguage))
                                                 <!-- Access the 'name' of the related TblLanguage model -->
                                                 {{ $language_info->fetchlanguage->name ?? 'Unknown' }}
                                                 @else
