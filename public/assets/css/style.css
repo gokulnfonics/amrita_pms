@@ -164,7 +164,7 @@ p {
     margin-bottom: 5px;
     color: #056e7b;
 }
-.fa-solid,.fa-brands, .fas{
+.contact-list .fa-solid,.contact-list  .fa-brands, .fas{
     color: #056e7b !important;  
 }
 .sidebar-wrapper .education-container .item {
