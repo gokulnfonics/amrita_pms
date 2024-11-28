@@ -1,4 +1,4 @@
-@extends('layouts.blank')
+@extends('layouts.empty')
 
 
 @section('content')
@@ -33,12 +33,6 @@
                             Recruiter </h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb fw-semibold fs-7 my-0 pt-1">
-                            <li class="breadcrumb-item text-muted">
-                                <!-- To complete your sign-up, please update all the required fields in your profile. This step
-                                                is necessary to activate your account. -->
-                            </li>
-                        </ul>
                         <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page title-->
