@@ -552,4 +552,38 @@ class student extends Controller
         return response()->json(['success' => 'The student has been deleted!']);
     
     }
+
+    public function studentDetails($id)
+{
+    if (!empty($id)) {
+        $student = User::findOrFail($id);
+        $personal_information       = PersonalInformation::where('user_id', $id)->get()->first()->toArray();
+        $contact_information        = ContactInformation::where('user_id', $id)->get()->first()->toArray();
+        $education_information      = Education::where('user_id', $id)->get()->toArray();
+        $experience_information     = Experience::where('user_id', $id)->get()->toArray();
+        $project_information        = Projects::where('user_id', $id)->get()->toArray();
+        $skill_information          = Skills::where('user_id', $id)->get()->toArray();
+        //$language_information       = Languages::where('user_id', $id)->get()->toArray();
+        $language_information = Languages::where('user_id', $id)
+        ->with('fetchlanguage') 
+            ->get();
+
+        $interest_information       = Interests::where('user_id', $id)->get()->toArray();
+
+       // print_r($language_information);exit();
+
+
+        $info['student']      = $student;
+        $info['personal_info']      = $personal_information;
+        $info['contact_info']       = $contact_information;
+        $info['education_info']     = $education_information;
+        $info['experience_info']    = $experience_information;
+        $info['project_info']       = $project_information;
+        $info['skill_info']         = $skill_information;
+        $info['language_info']      = $language_information;
+        $info['interest_info']      = $interest_information;
+    }
+
+    return view('student.studentprofile', ['information' => $info]);
+}
 }

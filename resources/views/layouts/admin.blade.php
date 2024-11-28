@@ -295,7 +295,7 @@
 									<!--begin:Menu link-->
 									<a class="menu-link  @if(in_array(Route::currentRouteName(),array('recruiter.index'))) active  @endif" href="{{route('recruiter.index')}}">
 										<span class="menu-icon">
-											<i class="fa-solid fa-users f-15 p-0"></i>
+											<i class="fa-solid fa-building f-15 p-0"></i>
 										</span>
 										<span class="menu-title">Manage Company</span>
 										<!-- <span class="menu-arrow"></span> -->

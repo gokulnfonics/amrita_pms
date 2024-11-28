@@ -45,3 +45,5 @@ Route::post('/recruiter/deletecompany', [\App\Http\Controllers\resource\recruite
 Route::post('/approve', [\App\Http\Controllers\resource\recruiter::class, 'approve'])->name('approve');
 Route::post('/student/deletestudent', [\App\Http\Controllers\resource\student::class, 'deletestudent'])->name('student.deletestudent');
 Route::post('/job/deleteJob', [\App\Http\Controllers\resource\job::class, 'deleteJob'])->name('job.deleteJob');
+
+Route::get('/student-details/{id}', [\App\Http\Controllers\resource\student::class, 'studentDetails'])->name('student.details');
