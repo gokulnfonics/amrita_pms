@@ -38,11 +38,11 @@
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Name-->
-                                <a href=""
-                                    class="fs-3 text-gray-800 text-hover-primary fw-bold mb-2 mt-2">{{$recruiter->first_name}}</a>
+                                <a href="" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-2 mt-5">     
+                                {{ strtoupper($recruiter->first_name) }}</a>
                                 <!--end::Name-->
                                 <!--begin::Position-->
-                                <div class="fs-5 fw-semibold text-muted mb-6">{{$recruiter->email}}</div>
+                                <!-- <div class="fs-5 fw-semibold text-muted mb-6"></div> -->
                             </div>
                             <!--end::Summary-->
 
@@ -54,7 +54,21 @@
                                     <!-- <div class="badge badge-light-info d-inline">Premium user</div> -->
                                     <!--begin::Badge-->
                                     <div class="d-flex justify-content-md-start fs-6 py-3">
-                                        <div class="flex-column mb-0">
+                                        <div class="flex-column mb-0  w-300px">
+                                            <div class="fw-bold mt-5">Website</div>
+                                            <div class="text-gray-600">
+                                                <a href="{{ $recruiter->contactInformation->website }}"
+                                                    class="text-gray-600 text-hover-primary">{{ $recruiter->contactInformation->website }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="flex-column mb-0 w-50">
+                                            <div class="fw-bold mt-5">Email</div>
+                                            <div class="text-gray-600">
+                                                <a href=""
+                                                    class="text-gray-600 text-hover-primary">{{$recruiter->email}}</a>
+                                            </div>
+                                        </div>
+                                        <div class="flex-column mb-0 w-50">
                                             <div class="fw-bold mt-5">Phone</div>
                                             <div class="text-gray-600">
                                                 <a href=""
@@ -64,15 +78,7 @@
                                     </div>
                                     <div class="d-flex justify-content-md-start fs-6 py-3">
                                         <!--begin::Details item-->
-                                        <div class="flex-column mb-0  w-300px">
-                                            <div class="fw-bold mt-0">Website</div>
-                                            <a  href="{{ $recruiter->contactInformation->website }}" class="text-gray-600">{{ $recruiter->contactInformation->website }}</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex justify-content-md-start fs-6 py-3">
-                                        <!--begin::Details item-->
-                                        <div class="flex-column mb-0 w-50 me-10">
+                                        <div class="flex-column mb-0 me-10">
                                             <div class="fw-bold mt-5 ">Address</div>
                                             <div class="text-gray-600">
                                                 {{ $recruiter->contactInformation->address }}
@@ -84,8 +90,8 @@
                                     <!--begin::Details item-->
                                     <div class="d-flex justify-content-md-start fs-6 py-3">
                                         <!--begin::Details item-->
-                                        <div class="flex-column mb-0 w-50 me-10">
-                                            <div class="fw-bold mt-5 ">Profile Description</div>
+                                        <div class="flex-column mb-0 me-10">
+                                            <div class="fw-bold mt-5 ">Profile</div>
                                             <div class="text-gray-600">
                                                 {{ $recruiter->personalInformation->about_me }}
                                             </div>
