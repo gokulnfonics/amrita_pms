@@ -92,7 +92,7 @@
 									</td>
 									<td class="text-center">
 																<div class="d-flex justify-content-center flex-shrink-0">
-																	<a href="javascript:void(0)" class="color-green mx-2 me-0" id="studentview" data-id="{{ $std->id }}" data-bs-toggle="modal" data-bs-target="#viewModal">
+																	<a  href="{{ route('student.profile', ['id' => $std->id]) }}" class="color-green mx-2 me-0" >
                                   										<i class="fa-regular fa-eye  p-0 me-0 color-green"></i> view
 																	</a>
 																	
@@ -119,29 +119,9 @@
 	</div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <!--<h5 class="modal-title" id="viewModalLabel"></h5>-->
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Content will be loaded here dynamically -->
-            </div>
-        </div>
-    </div>
-</div>
-
 @endsection
 
 @section('pageScripts')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -155,26 +135,5 @@
 </script>
 
 
-<script>
-    $(document).on('click', '#studentview', function () {
-        var id = $(this).data('id');
-        var url = "{{ route('student.details', ':id') }}".replace(':id', id);
-
-        // Fetch content via AJAX
-        $.get(url, function (data) {
-            $('#modalBody').html(data);
-        }).fail(function () {
-            $('#modalBody').html('<p class="text-danger">Failed to load details.</p>');
-        });
-    });
-</script>
-
-<script>
-    // Clear modal body when the modal is closed
-    $('#studentview').on('hidden.bs.modal', function () {
-
-        $('#modalBody').html(''); // Clear the content of the modal body
-    });
-</script>
 
 @endsection
