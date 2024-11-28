@@ -144,4 +144,18 @@ class job extends Controller
     {
         //
     }
+
+    public function deleteJob(Request $request)
+    {
+
+        $job = jobs::findOrFail($request->input('id'));
+        if (!$job) {
+        return response()->json(['error' => 'Job not found.'], 404);
+        }
+
+       
+        $job->forceDelete(); 
+        return response()->json(['success' => 'The job has been deleted!']);
+    
+    }
 }

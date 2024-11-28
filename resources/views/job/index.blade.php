@@ -94,7 +94,7 @@
 										</div>
 									</td>
 									<td class="text-center">
-										<a href="#" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+										<a href="javascript:void(0)" class="btn btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
 										<i class="fa-solid fa-angle-down"></i></a>
 										<!--begin::Menu-->
 											<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
@@ -105,7 +105,7 @@
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+													<a href="javascript:void(0)" onclick="removeJob('{{$job->id}}')" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
 												</div>
 											</div>
 									</td>
@@ -136,6 +136,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
+
 	$(document).ready(function() {
 		$('#jobtable').DataTable({
 			"iDisplayLength": 10,
@@ -144,6 +145,56 @@
 			"pagingType": "full_numbers"
 		});
 	});
+</script>
+
+<script>
+	function removeJob(jobId) {
+		swal({
+				title: "Are you sure?",
+				text: "You want to remove this job",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+			.then((willDelete) => {
+				if (willDelete) {
+					$.ajax({
+						url: "{{ route('job.deleteJob') }}",
+						type: 'POST',
+						data: {
+							_token: '{{ csrf_token() }}',
+							id: jobId,
+						},
+						success: function(response) {
+							if (response.success) {
+								swal(response.success, {
+									icon: "success",
+									buttons: false,
+								});
+								setTimeout(() => {
+									location.reload();
+								}, 1000);
+							} else {
+								swal(response.error || 'Something went wrong.', {
+									icon: "warning",
+									buttons: false,
+								});
+								setTimeout(() => {
+									location.reload();
+								}, 1000);
+							}
+						},
+						error: function(xhr) {
+							swal('Error: Something went wrong.', {
+								icon: "error",
+							}).then(() => {
+								location.reload();
+							});
+						}
+					});
+				}
+			});
+	}
 </script>
 
 
