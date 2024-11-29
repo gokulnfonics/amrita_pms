@@ -154,7 +154,7 @@
 
                                             <div class="fv-row flex-row-fluid">
                                                 
-                                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address">{{ old('address') }}</textarea>
+                                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address" rows="5">{{ old('address') }}</textarea>
                                                 @error('address')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -186,7 +186,7 @@
                                         <!--begin::Label-->
                                         <!-- <label class="required form-label">Profile Description</label> -->
                                         <textarea class="form-control @error('profile') is-invalid @enderror" name="profile"
-                                            placeholder="Profile Description">{{ old('profile') }}</textarea>
+                                            placeholder="Profile Description" rows="5">{{ old('profile') }}</textarea>
                                         @error('profile')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
