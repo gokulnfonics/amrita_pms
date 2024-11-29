@@ -212,11 +212,8 @@
                     <!--end::Form-->
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-
-
-
-
-                    </form>
+                    @csrf
+                </form>
                 </div>
                 <!--end::Content-->
             </div>
@@ -228,4 +225,23 @@
     </div>
     <!--end::Content wrapper-->
 @endsection
-
+@section('pageScripts')
+@if (session('success'))
+     <script>
+     // Display the success message in a popup
+     Swal.fire({
+         icon: 'success',
+         title: 'Your company sign-up is successful..!',
+         text: "{{ trans('auth.profileupdate') }}",
+         timer: 7000,
+         showConfirmButton: false,
+         customClass: {
+             popup: 'custom-popup' // Apply the custom class here
+         }
+     }).then(() => {
+         // Submit the hidden logout form to perform POST request
+         document.getElementById('logout-form').submit();
+     });
+     </script>
+     @endif
+     @endsection

@@ -105,10 +105,10 @@
 											<!--end::Menu item-->
 											
 											<!--begin::Menu item-->
-											<div class="menu-item px-3">
+											<!--<div class="menu-item px-3">
 												<a href="javascript:void(0)"
 												onclick="approve('{{$rec->id}}','disapproved')" class="menu-link px-3">Disapprove</a>
-											</div>
+											</div>-->
 											@endif
 											<!--end::Menu item-->
 											<!--begin::Menu item-->

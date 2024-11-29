@@ -1,4 +1,4 @@
-@extends('layouts.blank')
+@extends('layouts.admin')
 
 
 @section('content')
@@ -11,9 +11,7 @@
         }
 
         #kt_app_main {
-            width: 80%;
-            /* Set the desired width */
-            max-width: 80%;
+           
             margin: 0px auto;
         }
     </style>
@@ -30,7 +28,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Edit User Profile | {{$information['recruiter']['first_name']}} </h1>
+                        Edit Profile | {{$information['recruiter']['first_name']}} </h1>
                         <!--end::Title-->
                     </div>
                     <!--end::Page title-->
@@ -153,7 +151,7 @@
 
                                             <div class="fv-row flex-row-fluid">
                                                 
-                                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address">{{ $information['contact_info']->address ?? '' }}</textarea>
+                                                <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address" rows="5">{{ $information['contact_info']->address ?? '' }}</textarea>
                                                 @error('address')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -185,7 +183,7 @@
                                         <!--begin::Label-->
                                         <!-- <label class="required form-label">Profile Description</label> -->
                                         <textarea class="form-control @error('profile') is-invalid @enderror" name="profile"
-                                            placeholder="Profile Description">{{ isset($information['personal_info']['about_me']) ? $information['personal_info']['about_me'] : '' }}</textarea>
+                                            placeholder="Profile Description" rows="5">{{ isset($information['personal_info']['about_me']) ? $information['personal_info']['about_me'] : '' }}</textarea>
                                         @error('profile')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -227,4 +225,20 @@
     </div>
     <!--end::Content wrapper-->
 @endsection
+@section('pageScripts')
+<script>
+function display_image(input) {
 
+if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+
+        $(input).closest('div').find('.box-image-preview').attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+}
+
+}
+</script>

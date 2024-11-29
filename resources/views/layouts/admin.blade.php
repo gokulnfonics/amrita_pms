@@ -61,7 +61,7 @@
 					<!--begin::Mobile logo-->
 					<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 						<a href="" class="d-lg-none">
-							<img alt="Logo" src="{{ url('/') }}/assets/media/avatars/300-1.jpg" class="h-30px" />
+							<img alt="Logo" src="{{ isset(Auth::user()->personalInformation->image_path) && !empty(Auth::user()->personalInformation->image_path) ? asset('assets/images/' . Auth::user()->personalInformation->image_path) : asset('assets/images/user-thumb.jpg') }}" class="h-30px" />
 						</a>
 					</div>
 					<!--end::Mobile logo-->
@@ -79,7 +79,7 @@
 								<!--begin::Menu wrapper-->
 								<!--begin:Menu item--> <!--end:Menu item-->
 								<div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-									<img src="{{ !empty(Auth::user()->thumbnail_path) ? asset(Auth::user()->thumbnail_path) : url('/assets/media/avatars/300-1.jpg') }}" alt="user" />
+									<img src="{{ isset(Auth::user()->personalInformation->image_path) && !empty(Auth::user()->personalInformation->image_path) ? asset('assets/images/' . Auth::user()->personalInformation->image_path) : asset('assets/images/user-thumb.jpg') }}" alt="user" />
 								</div>
 								<!--begin::User account menu-->
 								<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -88,7 +88,7 @@
 										<div class="menu-content d-flex align-items-center px-3">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-50px me-5">
-												<img src="{{ !empty(Auth::user()->thumbnail_path) ? asset(Auth::user()->thumbnail_path) : url('/assets/media/avatars/300-1.jpg') }}" alt="user" />
+												<img src="{{ isset(Auth::user()->personalInformation->image_path) && !empty(Auth::user()->personalInformation->image_path) ? asset('assets/images/' . Auth::user()->personalInformation->image_path) : asset('assets/images/user-thumb.jpg') }}" alt="user" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Username-->
@@ -155,7 +155,7 @@
 					<!--begin::Logo-->
 					<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 						<!--begin::Logo image-->
-						<a href="">
+						<a href="{{route('dashboard')}}">
 							<img alt="Logo" src="{{ url('/') }}/assets/media/logos/logo.svg" class="h-35px app-sidebar-logo-default" />
 							<img alt="Logo" src="{{ url('/') }}/assets/media/logos/logo-small.png" class="h-35px app-sidebar-logo-minimize" />
 						</a>
@@ -321,7 +321,7 @@
 										<!-- <span class="menu-arrow"></span> -->
 									</a>
 								</div>
-								@endif
+								
 								<!--end:Menu item-->
 
 								<div class="menu-item pt-5">
@@ -374,6 +374,7 @@
 								</div>
 
 								<!--end:Menu item-->
+								@endif
 
 							</div>
 							<!--end::Menu-->

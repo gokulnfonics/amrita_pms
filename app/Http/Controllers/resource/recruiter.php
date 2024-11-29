@@ -80,7 +80,7 @@ class recruiter extends Controller
             $contact_info->website      = $request->website;
             $contact_info->save();
 
-        return redirect()->route('dashboard')->withSuccess("User Profile created successfully");
+            return redirect()->route('registration')->with('success', 'Company registered successfully.');
 
     }
 
@@ -156,7 +156,9 @@ class recruiter extends Controller
             $contact_info->website      = $request->website;
             $contact_info->save();
 
-        return redirect()->route('dashboard')->withSuccess("User Profile updated successfully");
+        return redirect()->route('dashboard')->withSuccess("Company Profile updated successfully");
+        //return redirect()->route('registration')->with('success', 'Company registered successfully.');
+
     }
 
     /**
