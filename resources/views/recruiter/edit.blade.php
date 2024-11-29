@@ -242,3 +242,4 @@ if (input.files && input.files[0]) {
 
 }
 </script>
+@endsection

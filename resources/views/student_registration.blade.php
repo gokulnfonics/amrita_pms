@@ -1,5 +1,5 @@
-{{ view('layouts.blank') }}
-
+@extends('layouts.empty')
+@section('content')
 <style>
 .content-wrapper {
     width: 80%;
@@ -490,3 +490,23 @@ span.position-absolute i {
         <!-- /.row -->
     </div>
 </div>
+
+@endsection
+@section('pageScripts')
+<script>
+function display_image(input) {
+
+if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+
+        $(input).closest('div').find('.box-image-preview').attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+}
+
+}
+</script>
+@endsection
