@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\resource;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Job as jobs;
@@ -16,7 +17,14 @@ class job extends Controller
      */
     public function index()
     {
-        $jobs=jobs::orderBy('job_title')->get();
+        $userId = Auth::id();
+        $userRole = Auth::user()->role;
+
+        if ($userRole === 'Student') {
+            $jobs = Jobs::with('user')->orderBy('job_title')->get();
+        } else {
+            $jobs = Jobs::with('user')->where('user_id', $userId)->orderBy('job_title')->get();
+        }
         return view('job.index', compact('jobs'));
     }
 
