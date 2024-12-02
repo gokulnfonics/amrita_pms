@@ -12,6 +12,13 @@
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Company Details</h1>
                 <!--end::Title-->
             </div>
+            <div class="card-header border-0">
+                    <div class="card-toolbar">
+                        <a href="{{ route('recruiter.index') }}" class="link fs-6">
+                            <u>Back to List</u>
+                        </a>
+                    </div>
+            </div>
         </div>
         <!--end::Toolbar container-->
     </div>
