@@ -347,7 +347,7 @@
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link @if(in_array(Route::currentRouteName(),array('user.index'))) active  @endif" href="">
+											<a class="menu-link @if(in_array(Route::currentRouteName(),array('user.index'))) active  @endif" href="{{route('user.index')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -359,7 +359,7 @@
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link @if(in_array(Route::currentRouteName(),array('user.create'))) active  @endif" href="">
+											<a class="menu-link @if(in_array(Route::currentRouteName(),array('user.create'))) active  @endif" href="{{route('user.create')}}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>

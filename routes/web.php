@@ -47,3 +47,5 @@ Route::post('/student/deletestudent', [\App\Http\Controllers\resource\student::c
 Route::post('/job/deleteJob', [\App\Http\Controllers\resource\job::class, 'deleteJob'])->name('job.deleteJob');
 
 Route::get('/student-profile/{id}', [\App\Http\Controllers\resource\student::class, 'studentDetails'])->name('student.profile');
+
+Route::resource('user',\App\Http\Controllers\resource\user::class);
