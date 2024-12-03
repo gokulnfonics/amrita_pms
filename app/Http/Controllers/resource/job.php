@@ -86,7 +86,8 @@ class job extends Controller
      */
     public function show($id)
     {
-        //
+        $job = Jobs::with('user')->find($id);
+        return view('job.show', compact('job')); 
     }
 
     /**

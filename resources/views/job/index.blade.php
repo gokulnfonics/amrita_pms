@@ -61,7 +61,7 @@
 												<!-- Content Section -->
 												<div class="flex-grow-1">
 													<!-- Job Title -->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 mb-2 ">
+													<a href="{{route('job.show',$job->id)}}" class="fs-4 fw-bold text-hover-primary text-gray-600 mb-2 ">
 													{{ $job->job_title }}
 													</a>
 													<div class="d-flex align-items-center justify-content-between py-2">
