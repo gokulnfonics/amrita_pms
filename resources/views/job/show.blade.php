@@ -31,12 +31,12 @@
 									<!-- begin::Invoice 3-->
 									<div class="card">
 										<!-- begin::Body-->
-										<div class="card-body py-10">
+										<div class="card-body p-20">
 											<!-- begin::Wrapper-->
 											<div class="mw-lg-950px mx-auto w-100">
 												<!-- begin::Header-->
 												<div class="">
-													<h4 class="fw-bolder text-gray-800 fs-2qx pe-5 pb-5">{{ $job->job_title }}</h4>
+													<h4 class="fw-bolder text-primary fs-2qx pe-5 pb-5">{{ $job->job_title }}</h4>
 													
 													<div class="d-flex flex-column flex-sm-row pb-5">
                                                         <div class="flex-root d-flex flex-column fw-semibold fs-4">
