@@ -30,9 +30,11 @@
 											</div>
 											<!--end::Select wrapper-->
 											<div class="card-toolbar">
+											@if(Auth::user()->isRecruiter())
 												<a href="{{ route('job.create') }}" class="btn btn-sm btn-primary">
 													Create Job
 												</a>
+											@endif
 											</div>
 										</div>
 										<!--end::Controls-->
