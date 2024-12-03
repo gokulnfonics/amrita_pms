@@ -1,20 +1,14 @@
-@extends('layouts.admin')
+@extends(Auth::user()->isStudent() ? 'layouts.blank' : 'layouts.admin')
 
 @section('content')
-<style>
 
-/* .card .card-body {
-    padding: 10px !important;
-} */
-
-</style>
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 						<!--begin::Content wrapper-->
 						<div class="d-flex flex-column flex-column-fluid">
 							<!--begin::Content-->
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
-								<div id="kt_app_content_container" class="app-container container-xxl">
+								<div id="kt_app_content_container" class="app-container container-xxl py-10">
 									<div class="d-flex flex-wrap flex-stack mb-6">
 										<!--begin::Title-->
 										<h3 class="fw-bold my-2">Job Listing
@@ -63,7 +57,7 @@
 												<!-- Content Section -->
 												<div class="flex-grow-1">
 													<!-- Job Title -->
-													<a href="{{route('job.show',$job->id)}}" class="fs-4 fw-bold text-hover-primary text-gray-600 mb-2 ">
+													<a href="{{route('job.show',$job->id)}}" class="fs-3 fw-bold text-primary mb-2 ">
 													{{ $job->job_title }}
 													</a>
 													<div class="d-flex align-items-center justify-content-between py-2">
