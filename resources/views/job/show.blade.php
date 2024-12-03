@@ -87,6 +87,11 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+                                                <div class="d-flex flex-stack flex-wrap">
+													<div class="my-1 me-5">
+														<button type="button" class="btn btn-success my-1 me-12">Apply Now</button>
+													</div>
+												</div>
 											</div>
 											<!-- end::Wrapper-->
 										</div>
