@@ -57,7 +57,7 @@ div#kt_app_main {
                         <a href="{{ route('job.show', $job->id) }}">
                             <div class="card d-flex flex-row align-items-center border py-7 px-5 pe-7">
                                 <div class="symbol symbol-70px w-70px me-5">
-                                    <img src="{{ $job->user->personalInformation->image_path ? asset('assets/images/' . $job->user->personalInformation->image_path) : asset('assets/media/logos/dummy-logo.png') }}"
+                                    <img src="{{ $job->user->personalInformation->image_path ? asset('storage/images/' . $job->user->personalInformation->image_path) : asset('assets/media/logos/dummy-logo.png') }}"
                                         alt="image" class="img-fluid">
                                 </div>
                                 <div class="flex-grow-1">

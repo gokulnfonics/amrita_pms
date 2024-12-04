@@ -122,7 +122,7 @@
                                                         accept="image/png, image/jpeg, image/jpg"
                                                         onchange="display_image(this);" class="d-none upload-box-image">
                                                     <img class="box-image-preview img-fluid img-circle elevation-2"
-                                                        src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('assets/images/' . $information['personal_info']['image_path']) : asset('assets/media/logos/dummy-logo.png') }}"
+                                                        src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('storage/images/' . $information['personal_info']['image_path']) : asset('assets/media/logos/dummy-logo.png') }}"
                                                         alt="Logo"
                                                         onclick="$(this).closest('.profile_picture').find('input').click();"
                                                         style="height:150px; width:150px;">

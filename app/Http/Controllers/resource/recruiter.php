@@ -63,7 +63,7 @@ class recruiter extends Controller
             $personal_info->about_me = $request->profile;
             if ($request->file('image_path')) {
                 $picture = !empty($request->file('image_path')) ? $request->file('image_path')->getClientOriginalName() : '';
-                $request->file('image_path')->move(public_path('assets/images/'), $picture);
+                $request->file('image_path')->move(public_path('storage/images/'), $picture);
             }
             $personal_info->image_path = isset($picture) && !empty($picture) ? $picture : '';
             $personal_info->save();
@@ -142,7 +142,7 @@ class recruiter extends Controller
             $personal_info->about_me = $request->profile;
             if ($request->file('image_path')) {
                 $picture = !empty($request->file('image_path')) ? $request->file('image_path')->getClientOriginalName() : '';
-                $request->file('image_path')->move(public_path('assets/images/'), $picture);
+                $request->file('image_path')->move(public_path('storage/images/'), $picture);
             }
             $personal_info->image_path = isset($picture) && !empty($picture) ? $picture : '';
             $personal_info->save();

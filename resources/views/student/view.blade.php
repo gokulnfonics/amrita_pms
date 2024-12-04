@@ -29,7 +29,7 @@
                                 <div class="sidebar-wrapper col-4 br-top-green-5x py-15">
                                     <div class="profile-container">
                                         <img class="profile box-image-preview img-fluid"
-                                            src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('assets/images/'. $information['personal_info']['image_path'])  : asset('assets/images/user-thumb.jpg') }}"
+                                            src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('storage/images/'. $information['personal_info']['image_path'])  : asset('assets/images/user-thumb.jpg') }}"
                                             alt="" style=" border-radius: 0px;" />
                                         <h1 class="name">
                                             {{ isset($information['student']['first_name']) ? $information['student']['first_name'] : '' }}

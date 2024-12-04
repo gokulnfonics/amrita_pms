@@ -71,7 +71,7 @@ class student extends Controller
         $personal_info->about_me          = $request->about_me;
         if ($request->file('image_path')) {
             $picture       = !empty($request->file('image_path')) ? $request->file('image_path')->getClientOriginalName() : '';
-            $request->file('image_path')->move(public_path('assets/images/'), $picture);
+            $request->file('image_path')->move(public_path('storage/images/'), $picture);
         }
         $personal_info->image_path        = isset($picture) && !empty($picture) ? $picture : '';
         $personal_info->save();
@@ -291,7 +291,7 @@ class student extends Controller
             $personal_info->about_me          = $request->about_me;
             if ($request->file('image_path')) {
                 $picture       = !empty($request->file('image_path')) ? $request->file('image_path')->getClientOriginalName() : '';
-                $request->file('image_path')->move(public_path('assets/images/'), $picture);
+                $request->file('image_path')->move(public_path('storage/images/'), $picture);
             }
             if (!empty($request->file('image_path'))) {
                 $personal_info->image_path        = isset($picture) && !empty($picture) ? $picture : '';

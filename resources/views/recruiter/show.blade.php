@@ -39,7 +39,7 @@
                             <div class="d-flex flex-center flex-column me-10 br-right pe-10">
                                 <!--begin::Avatar-->
                                 <div class="profile_picture">
-                                    <img class="profile box-image-preview img-fluid"  src="{{ isset($recruiter->personalInformation->image_path) && !empty($recruiter->personalInformation->image_path) ? asset('assets/images/'. $recruiter->personalInformation->image_path)  : asset('assets/media/logos/dummy-logo.png') }}" 
+                                    <img class="profile box-image-preview img-fluid"  src="{{ isset($recruiter->personalInformation->image_path) && !empty($recruiter->personalInformation->image_path) ? asset('storage/images/'. $recruiter->personalInformation->image_path)  : asset('assets/media/logos/dummy-logo.png') }}" 
                                     alt="Logo"
                                     style="height:150px; width:150px;" />
                                 </div>

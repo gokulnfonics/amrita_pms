@@ -114,7 +114,7 @@ span.position-absolute i {
                                                             onchange="display_image(this);"
                                                             class="d-none upload-box-image">
                                                         <img class="box-image-preview img-fluid"
-                                                            src="{{ asset('assets/images/user-thumb.jpg') }}"
+                                                            src="{{ asset('storage/images/user-thumb.jpg') }}"
                                                             alt="Profile picture"
                                                             onclick="$(this).closest('.profile_picture').find('input').click();"
                                                             style="height:150px; width:150px;">
