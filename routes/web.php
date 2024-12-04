@@ -19,20 +19,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', function(){
-    if ( Auth::user()->isAdmin() ) {
+Route::get('/home', function () {
+    if (Auth::user()->isAdmin()) {
         return redirect(route('dashboard'));
     }
-    if ( Auth::user()->isCoordinator() ) {
+    if (Auth::user()->isCoordinator()) {
         return redirect(route('dashboard'));
     }
-    if ( Auth::user()->isRecruiter() ) {
+    if (Auth::user()->isRecruiter()) {
         return redirect(route('dashboard'));
     }
-    if ( Auth::user()->isStudent() ) {
-        return redirect(route('dashboard'));
+    if (Auth::user()->isStudent()) {
+        return redirect(route('job.index'));
     }
 })->name('dashboard');
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

@@ -56,14 +56,14 @@
                     <div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0"
                         id="kt_app_header_menu" data-kt-menu="true">
                         <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                        <div
                             data-kt-menu-placement="bottom-start"
                             class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                             <!--begin:Menu link-->
-                            <span class="menu-link">
+                            <a href="{{route('job.index')}}" class="menu-link">
                                 <span class="menu-title fs-5">Jobs</span>
                                 <span class="menu-arrow d-lg-none"></span>
-                            </span>
+                            </a>
                             <!--end:Menu link-->
 
                         </div>
@@ -149,8 +149,8 @@
                             <!--end::Menu separator-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="menu-link px-5">Sign Out</a>
-										<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="menu-link px-5">Sign Out</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
                             </div>
                             <!--end::Menu item-->
                         </div>
@@ -192,7 +192,7 @@
 
     <!--begin::Javascript-->
     <script>
-    var hostUrl = "assets/";
+        var hostUrl = "assets/";
     </script>
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
     <script src="{{ url('/') }}/assets/plugins/global/plugins.bundle.js"></script>

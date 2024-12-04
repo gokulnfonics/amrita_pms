@@ -32,7 +32,12 @@ class HomeController extends Controller
         $user = User::where('id', $userId)->first();
         if($user->profile_updated == TRUE){
 
+            if (Auth::user()->isStudent()) {
+                return redirect()->route('job.index'); // Redirect students to job.index
+            }else{
+
             return view('home');
+            }
 
         }else{
 
