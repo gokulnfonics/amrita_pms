@@ -30,7 +30,7 @@ Route::get('/home', function () {
         return redirect(route('dashboard'));
     }
     if (Auth::user()->isStudent()) {
-        return redirect(route('job.index'));
+        return redirect(route('dashboard'));
     }
 })->name('dashboard');
 
