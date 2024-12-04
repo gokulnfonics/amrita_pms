@@ -113,7 +113,7 @@ span.position-absolute i {
                                                             accept="image/png, image/jpeg, image/jpg"
                                                             onchange="display_image(this);"
                                                             class="d-none upload-box-image">
-                                                        <img class="box-image-preview img-fluid img-circle elevation-2"
+                                                        <img class="box-image-preview img-fluid"
                                                             src="{{ asset('assets/images/user-thumb.jpg') }}"
                                                             alt="Profile picture"
                                                             onclick="$(this).closest('.profile_picture').find('input').click();"

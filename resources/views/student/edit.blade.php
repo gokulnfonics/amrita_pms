@@ -61,7 +61,7 @@ span.position-absolute i {
     <div class="content-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-8">
+                <div class="col-8 pt-10">
                     <h1 class="m-0">Edit User Profile | {{$information['student']['first_name']}} {{$information['student']['last_name']}}</h1>
                 </div>
                 
@@ -84,7 +84,7 @@ span.position-absolute i {
                                     {{-- Personal Information --}}
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2 class="fw-bold br-btm py-4 mb-10 pt-10">Personal Information</h2>
+                                            <h2 class="fw-bold br-btm pb-4 mb-10">Personal Information</h2>
                                             <div class="form-outline mb-4">
                                                 <input type="hidden" id="user_id" name="user_id" class="form-control"
                                                     value="{{ isset($information['student']['id']) ? $information['student']['id'] : '' }}" />
@@ -122,7 +122,7 @@ span.position-absolute i {
                                                                     accept="image/png, image/jpeg, image/jpg"
                                                                     onchange="display_image(this);"
                                                                     class="d-none upload-box-image">
-                                                                <img class="box-image-preview img-fluid img-circle elevation-2"
+                                                                <img class="box-image-preview img-fluid"
                                                                     src="{{ isset($information['personal_info']['image_path']) && !empty($information['personal_info']['image_path']) ? asset('assets/images/' . $information['personal_info']['image_path']) : asset('assets/images/user-thumb.jpg') }}"
                                                                     alt="Profile picture"
                                                                     onclick="$(this).closest('.profile_picture').find('input').click();"
