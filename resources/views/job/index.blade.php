@@ -48,25 +48,21 @@
 										@foreach($jobs as $job)
 										<div class="col-sm-6 col-xl-6">
 											<!--begin::Card-->
+											<a href="{{ route('job.show', $job->id) }}">
 											<div class="card d-flex flex-row align-items-center border py-7 px-5 pe-7">
-												<!-- Image Section -->
 												<div class="symbol symbol-70px w-70px me-5">
-													<!-- <img src="assets/images/pexels-buro-millennial-636760-1438081 (1).jpg" alt="image" class="img-fluid"> -->
 													<img src="{{ $job->user->personalInformation->image_path ? asset('assets/images/' . $job->user->personalInformation->image_path) : asset('assets/media/logos/dummy-logo.png') }}" alt="image" class="img-fluid">
 												</div>
-												<!-- Content Section -->
 												<div class="flex-grow-1">
-													<!-- Job Title -->
-													<a href="{{route('job.show',$job->id)}}" class="fs-3 fw-bold text-primary mb-2 ">
+													<span class="fs-3 fw-bold text-primary mb-2 ">
 													{{ $job->job_title }}
-													</a>
+													</span>
 													<div class="d-flex align-items-center justify-content-between py-2">
 														<div class="fs-5 fw-semibold mb-0"> {{ $job->user->first_name ?? 'Unknown Company' }}</div>
 														<div class="fs-6 text-muted">
 															<i class="fa-solid fa-location-dot"></i> {{ $job->job_location }}
 														</div>
 													</div>
-													<!-- Salary and Date -->
 													<div class="d-flex align-items-center justify-content-between">
 														<div class="text-gray-700 fs-6 py-0">&#8377; {{ number_format($job->salary, 0) }}</div>
 														<div class="fs-6 text-muted">
@@ -75,7 +71,7 @@
 													</div>
 												</div>
 											</div>
-											<!--end::Card-->
+											</a>
 										</div>
 										@endforeach
 									@endif
