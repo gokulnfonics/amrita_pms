@@ -79,7 +79,7 @@ div#kt_app_main {
                                     </div>
                                 </div>
                                 <div class="pb-10 mb-xl-0 pe-5">
-                                    <h4 class="mb-0">Job Criteria</h4>
+                                    <h4 class="mb-0">Eligibility Criteria</h4>
                                     <div class="fs-6 fw-semibold text-gray-600 py-4 m-0">
                                         {!! $job->criteria !!}
                                     </div>
